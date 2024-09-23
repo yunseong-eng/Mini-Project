@@ -1,0 +1,210 @@
+@charset "UTF-8";
+* {
+	padding : 0;
+	margin : 0;
+	box-sizing : border-box;
+}
+body{
+	height: 100vh;
+	overflow-y: auto;
+	background-color: #000;
+}
+html{
+	height: 100vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+	font-size: 10px;
+}
+header {
+	display : flex;
+	height : 80px;
+	background-color : lightgray;
+	justify-content : flex-end;
+}
+header img {
+	width : 100px;
+	height : 80px;
+	object-fit : contain;
+	margin-left : 10px;
+}
+#banner {
+	margin-right : auto;
+}
+#member {
+	box-sizing : border-box;
+}
+#member button {
+	width : 50px;
+	height : 20px;
+	border-style: none;
+	border-radius : 10px 10px;
+	background-color: #fff;
+	text-align : center;
+	color : #000;
+	font-size : 10px;
+	text-decoration : none;
+	margin : 10px 10px 0 0;
+	cursor : pointer;
+	transform: translateY(2px);
+	transition: all 0.5s;
+}
+#member button:hover {
+	border : 1px solid #7F7F7F;
+	color : #fff;
+	box-shadow: 0 0.5em 0.5em -0.4em #000;
+	background-color: #6E6E6E;
+	transform: translateY(-2px);
+	transition: all 0.5s;
+}
+nav {
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-content : center;
+	height: 60px;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+nav ul {
+	align-content: center;
+}
+
+nav li {
+	font-size : 2rem;
+	display: inline-block;
+	list-style : none;
+	padding : 3px 15px;
+	transform: translate(2px, 2px);
+	transition: all 0.5s;
+	cursor : pointer;
+}
+nav li:hover {
+	box-shadow: 0.5em 0.5em 1em -0.2em #000;
+	border-radius: 5px 5px;
+	transform: translate(-2px, -2px);
+	transition: all 0.5s;
+	color: blue;
+}
+nav a {
+	width: 100px;
+	text-align : center;
+	line-height: 200%;
+	text-decoration : none;
+}
+main{
+	clear:both;
+	min-height: 100%;
+}
+main article {
+	min-height: 120rem;
+}
+main .slide-container{
+	position: relative;
+	display:flex;  
+	justify-content: center;
+    align-items: flex-start;
+    padding-top : 60px;
+    margin : 15px 0;
+}
+main .slide-container:first-child{
+	margin-top: 0;
+}
+main .slide-container h1{
+	position: absolute;
+	top :10px;
+	left: 50% - 6.92rem;
+	text-align:right;
+	font-size: 3rem;
+}
+main .back1::before{
+	content:"";
+	background: url("../image/man-8293794_1920.jpg");
+	background-size: cover;
+	opacity : 0.6;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+main .back2::before{
+	content:"";
+	background: url("../image/women/anastasiia-tarasova-bPG95QL4478-unsplash.jpg");
+	background-size: cover;
+	opacity : 0.6;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+main .back3::before{
+	content:"";
+	background: url("../image/kids/habib-dadkhah-cofpB5_qRZ8-unsplash.jpg");
+	background-size: cover;
+	opacity : 0.6;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+main .back4::before{
+	content:"";
+	background: url("../image/sports/fachry-zella-devandra-u3YoW5MX26Y-unsplash.jpg");
+	background-size: cover;
+	opacity : 0.6;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+main .slide-container .slide-box{
+	position: relative;
+	height: 80rem;
+	display:inline-flex;
+}
+main .slide-box img{
+	width: 100%;
+	height: 100%;
+	overflow-y : auto;
+	overflow-x: hidden;
+	object-fit : scale-down;
+	border-radius: 10px 10px;
+	box-shadow: 0.5em 0.5em 2em 0.4em #000;
+}
+main .slide-container p{
+	position: absolute;
+	bottom :100px;
+	text-align: left;
+	font-size: 1.6rem;
+	margin: 0 10rem;
+	background-color: rgba(255,255,255,.4);
+	border-radius: 10px 10px;
+	padding: 3px;
+}
+footer{
+	display: flex;
+	justify-content: center;       
+}
+footer p{
+	color: #fff;
+	margin: 0 auto;
+	width: 80rem;
+	font-size: 1.6em;
+	padding: 2rem 0;
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@keyframes fade {
+    from {
+        opacity: .4;
+    }
+    to {
+        opacity: 1;
+    }
+}
