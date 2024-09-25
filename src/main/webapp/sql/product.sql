@@ -1,5 +1,6 @@
 --상품 테이블
 CREATE TABLE PRODUCTS(
+	ctg char(50) not null,	-- 카테고리 (MEN, WOMEN, KIDS, SPORTS 중 하나)
 	product_id int auto_increment primary key,	-- 상품 id (고유값)
 	product_name varchar(150) not null,		-- 상품 이름
 	product_price int not null default 0,		-- 상품 가격
@@ -10,3 +11,4 @@ CREATE TABLE PRODUCTS(
 	product_description text,				-- 상품 설명
 	logtime timestamp default current_timestamp	-- 상품 등록 시간
 );
+
