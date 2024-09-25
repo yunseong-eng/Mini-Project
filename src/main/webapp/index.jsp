@@ -1,22 +1,47 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+>>>>>>> b3d53dfde9b78a03c41d5929bfb07446a42dc98f
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>adidas</title>
+<title>Main</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 </head>
 <body>
+<<<<<<< HEAD
 	<!-- 메뉴 -->
 	<jsp:include page="./main/header.jsp"/>
+=======
+    <header>
+        <a href="${pageContext.request.contextPath}/index.jsp" id="banner"><img src="${pageContext.request.contextPath}/image/pngegg.png" alt="adidas.logo"></a>
+        <div id="member">
+            <button type="button" onclick="location.href='writeForm.jsp'">Signup</button>
+            <button type="button" onclick="location.href='loginForm.jsp'">Login</button>
+        </div>
+    </header>
+    
+    <nav id="main_menu">
+        <ul>
+            <li><a href="${pageContext.request.contextPath}/product/productList.do?category=MEN">MEN</a></li>
+            <li><a href="${pageContext.request.contextPath}/product/productList.do?category=WOMEN">WOMEN</a></li>
+            <li><a href="${pageContext.request.contextPath}/product/productList.do?category=KIDS">KIDS</a></li>
+            <li><a href="${pageContext.request.contextPath}/product/productList.do?category=SPORTS">SPORTS</a></li>
+        </ul>
+    </nav>
+    
+>>>>>>> b3d53dfde9b78a03c41d5929bfb07446a42dc98f
     <main>
         <section>
+            <!-- MEN 카테고리 섹션 -->
             <article class="slide-container back1">
-            <div id="men_link"></div>
-            <h1 id="men">MEN</h1>
+                <div id="men_link"></div>
+                <h1 id="men">MEN</h1>
                 <div class="slide-box fade slide1">
                     <img src="${pageContext.request.contextPath}/image/men/korie-cull-day4vrQl9ic-unsplash.jpg" alt="men.01">
                 </div>
@@ -26,11 +51,13 @@
                 <div class="slide-box fade slide1">
                     <img src="${pageContext.request.contextPath}/image/men/mateusz-syta-xU-QhJ5K5mg-unsplash.jpg" alt="men.03">
                 </div>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout...</p>
             </article>
-            
+
+            <!-- WOMEN 카테고리 섹션 -->
             <article class="slide-container back2">
-            <div id="women_link"></div>
-            <h1 id="women">WOMEN</h1>
+                <div id="women_link"></div>
+                <h1 id="women">WOMEN</h1>
                 <div class="slide-box fade slide2">
                     <img src="${pageContext.request.contextPath}/image/women/alex-shaw-GtkWU292vLQ-unsplash.jpg" alt="women.01">
                 </div>
@@ -40,11 +67,16 @@
                 <div class="slide-box fade slide2">
                     <img src="${pageContext.request.contextPath}/image/women/corey-saldana-tKMBnca9ZEI-unsplash.jpg" alt="women.03">
                 </div>
+                <div class="slide-box fade slide2">
+                    <img src="${pageContext.request.contextPath}/image/women/ilya-shishikhin-XJK3sSudLQg-unsplash.jpg" alt="women.04">
+                </div>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout...</p>
             </article>
-            
+
+            <!-- KIDS 카테고리 섹션 -->
             <article class="slide-container back3">
-            <div id="kids_link"></div>
-            <h1 id="kids">KIDS</h1>
+                <div id="kids_link"></div>
+                <h1 id="kids">KIDS</h1>
                 <div class="slide-box fade slide3">
                     <img src="${pageContext.request.contextPath}/image/kids/boy-932116_1920.jpg" alt="kids.01">
                 </div>
@@ -54,11 +86,13 @@
                 <div class="slide-box fade slide3">
                     <img src="${pageContext.request.contextPath}/image/kids/child-8228075_1920.jpg" alt="kids.03">
                 </div>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout...</p>
             </article>
-            
+
+            <!-- SPORTS 카테고리 섹션 -->
             <article class="slide-container back4">
-            <div id="sports_link"></div>
-            <h1 id="sports" style="color:white;">SPORTS</h1>
+                <div id="sports_link"></div>
+                <h1 id="sports" style="color:white;">SPORTS</h1>
                 <div class="slide-box fade slide4">
                     <img src="${pageContext.request.contextPath}/image/sports/jc-gellidon-Q-tMKmr-1xI-unsplash.jpg" alt="sports.01">
                 </div>
@@ -68,6 +102,7 @@
                 <div class="slide-box fade slide4">
                     <img src="${pageContext.request.contextPath}/image/sports/shoes-1422650_1920.jpg" alt="sports.03">
                 </div>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout...</p>
             </article>
         </section>
     </main>
@@ -106,18 +141,26 @@ function showSlides() {
     }
     slideIndex4++;
     
-    if (slideIndex1 > slide1.length) { slideIndex1 = 1 }
+    if (slideIndex1 > slide1.length) {
+        slideIndex1 = 1;
+    }
     slide1[slideIndex1 - 1].style.display = "block";
-    
-    if (slideIndex2 > slide2.length) { slideIndex2 = 1 }
+
+    if (slideIndex2 > slide2.length) {
+        slideIndex2 = 1;
+    }
     slide2[slideIndex2 - 1].style.display = "block";
-    
-    if (slideIndex3 > slide3.length) { slideIndex3 = 1 }
+
+    if (slideIndex3 > slide3.length) {
+        slideIndex3 = 1;
+    }
     slide3[slideIndex3 - 1].style.display = "block";
-    
-    if (slideIndex4 > slide4.length) { slideIndex4 = 1 }
+
+    if (slideIndex4 > slide4.length) {
+        slideIndex4 = 1;
+    }
     slide4[slideIndex4 - 1].style.display = "block";
- 
+
     setTimeout(showSlides, 5000);
 }
 </script>
