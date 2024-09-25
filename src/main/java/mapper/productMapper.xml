@@ -4,5 +4,15 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="productMapper">
 
+    <!-- 카테고리별 상품 조회 -->
+    <select id="getProductsByCategory" parameterType="String" resultType="product">
+        SELECT * FROM PRODUCTS WHERE ctg = #{ctg}
+    </select>
+
+    <!-- 상품 등록 -->
+    <insert id="insertProduct" parameterType="product">
+        INSERT INTO PRODUCTS (ctg, product_name, product_price, product_qty, product_image, product_description)
+        VALUES (#{ctg}, #{productName}, #{productPrice}, #{productQty}, #{productImage}, #{productDescription})
+    </insert>
 
 </mapper>

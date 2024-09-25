@@ -2,8 +2,28 @@
 <!DOCTYPE configuration
  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-config.dtd">
- <configuration>
-   
-</configuration>
+<configuration>
+    <!-- db.properties 파일에서 설정 읽기 -->
+    <properties resource="db.properties" />
 
- 
+    <typeAliases>
+        <!-- Product 관련 DTO를 알리아스로 등록 -->
+        <typeAlias type="product.bean.ProductDTO" alias="product"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}" />
+                <property name="url" value="${jdbc.url}" />
+                <property name="username" value="${jdbc.username}" />
+                <property name="password" value="${jdbc.password}" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="mapper/productMapper.xml" />
+    </mappers>
+</configuration>
