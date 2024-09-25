@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.control.CommandProcess;
 
-public class UserService implements CommandProcess {
+public class WriteFormService implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return "/user/writeForm.jsp";
 	}
 
 }

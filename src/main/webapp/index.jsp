@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,23 +10,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 </head>
 <body>
-    <header>
-        <a href="#" id="banner"><img src="${pageContext.request.contextPath}/image/pngegg.png" alt="adidas.logo"></a>
-        <div id="member">
-            <button type="button" onclick="location.href='signup.html'">Signup</button>
-            <button type="button" onclick="location.href='login.html'">Login</button>
-        </div>
-    </header>
-    
-    <nav id="main_menu">
-        <ul>
-            <li><a href="#men_link">MEN</a></li>
-            <li><a href="#women_link">WOMEN</a></li>
-            <li><a href="#kids_link">KIDS</a></li>
-            <li><a href="#sports_link">SPORTS</a></li>
-        </ul>
-    </nav>
-    
+	<!-- 메뉴 -->
+	<jsp:include page="./main/header.jsp"/>
     <main>
         <section>
             <article class="slide-container back1">
