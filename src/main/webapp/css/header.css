@@ -20,7 +20,10 @@ header {
 	display : flex;
 	height : 80px;
 	background-color : #fff;
-	justify-content : flex-end;
+	justify-content : space-between;
+	position: sticky;
+	top:0;
+	z-index: 10;
 }
 header img {
 	width : 100px;
@@ -29,7 +32,7 @@ header img {
 	margin-left : 10px;
 }
 #banner {
-	margin-right : auto;
+	margin: 0;
 }
 #member {
 	box-sizing : border-box;
@@ -62,10 +65,7 @@ nav {
 	display: flex;
 	justify-content: center;
 	align-content : center;
-	height: 60px;
-	position: sticky;
-	top: 0;
-	z-index: 10;
+	height: 8rem;
 }
 nav ul {
 	align-content: center;

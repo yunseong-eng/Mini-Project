@@ -1,11 +1,11 @@
 //회원 관련 JavaScript
 
 //아이디 중복 체크
-$('#id').focusout(function() {
-	$('#errorbox').empty();
+$('#user_id').focusout(function() {
+	$('#checkidbox').empty();
 	
 	if($('#user_id').val() == '')
-		$('#errorbox').html('먼저 아이디 입력').css('color', 'red').css('font-size', '2.5rem');
+		$('#checkidbox').html('먼저 아이디 입력').css('color', 'red').css('font-size', '1.5rem');
 	else
 		$.ajax({
 			type: 'post',
@@ -16,9 +16,9 @@ $('#id').focusout(function() {
 				//alert(data.trim());
 				
 				if(data.trim() == 'exist'){
-					$('#errorbox').html('사용 불가능').css('color', 'red').css('font-size', '2.5rem');
+					$('#checkidbox').html('사용 불가능').css('color', 'red').css('font-size', '1.5rem');
 				}else{
-					$('#errorbox').html('사용 가능').css('color', 'blue').css('font-size', '2.5rem');
+					$('#checkidbox').html('사용 가능').css('color', 'blue').css('font-size', '1.5rem');
 					$('#check').val($('#user_id').val());
 				}
 			},
@@ -65,7 +65,7 @@ $(function(){
 				dateType : 'text',
 				success : function(){
 					alert('회원가입이 완료되었습니다.');
-					location.href = '${ pageContext.request.contextPath }/index.jsp';
+					location.href = '${ pageContext.request.contextPath }/index.do';
 				},
 				error : function(e){
 					alert('회원가입 실패');

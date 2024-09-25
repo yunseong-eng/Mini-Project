@@ -11,16 +11,17 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import user.bean.UserDTO;
+import user.bean.UsersDTO;
 
-public class UserDAO {
+public class UsersDAO {
 	private SqlSessionFactory sqlSessionFactory;
-	private static UserDAO instance = new UserDAO();
+	private static UsersDAO instance = new UsersDAO();
 
-	public static UserDAO getInstance() {
+	public static UsersDAO getInstance() {
 		return instance;
 	}
 
-	public UserDAO() {
+	public UsersDAO() {
 		try {
 			Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
@@ -32,41 +33,41 @@ public class UserDAO {
 	public boolean isExistId(String user_id) {
 		boolean exist = false;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		UserDTO userDTO = sqlSession.selectOne("userSQL.isExistId", user_id);
-		if (userDTO != null)
+		UsersDTO usersDTO = sqlSession.selectOne("usersSQL.isExistId", user_id);
+		if (usersDTO != null)
 			exist = true; // id가 존재, 사용 불가능
 		sqlSession.close();
 		return exist;
 	}
 
-	public void write(UserDTO userDTO) {
+	public void usersWrite(UsersDTO usersDTO) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		sqlSession.insert("userSQL.write", userDTO);
+		sqlSession.insert("usersSQL.write", usersDTO);
 		sqlSession.commit();
 		sqlSession.close();
 	}
 
-	public UserDTO login(String user_id, String pwd) {
+	public UsersDTO usersLogin(String user_id, String pwd) {
 		Map<String, String> map = new HashMap<>();
 		map.put("user_id", user_id);
 		map.put("pwd", pwd);
 
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		UserDTO userDTO = sqlSession.selectOne("userSQL.login", map);
+		UsersDTO usersDTO = sqlSession.selectOne("usersSQL.login", map);
 		sqlSession.close();
-		return userDTO;
+		return usersDTO;
 	}
 
-	public UserDTO getMember(String user_id) {
+	public UsersDTO getUsers(String user_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		UserDTO userDTO = sqlSession.selectOne("userSQL.getMember", user_id);
+		UsersDTO usersDTO = sqlSession.selectOne("usersSQL.getMember", user_id);
 		sqlSession.close();
-		return userDTO;
+		return usersDTO;
 	}
 
-	public void update(UserDTO userDTO) {
+	public void updateUsers(UsersDTO usersDTO) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		sqlSession.update("userSQL.update", userDTO);
+		sqlSession.update("usersSQL.updateUsers", usersDTO);
 		sqlSession.commit();
 		sqlSession.close();
 	}

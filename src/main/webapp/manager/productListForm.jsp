@@ -12,7 +12,7 @@
 
 </head>
 <body>
-	<jsp:include page="../menu/header.jsp"/>
+	<jsp:include page="../main/header.jsp"/>
 	<div id="products">
 		<table>
 			<tr>

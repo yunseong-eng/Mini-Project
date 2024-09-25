@@ -2,6 +2,42 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="userMapper">
-
-</mapper>
+<mapper namespace="usersSQL">
+ 	<resultMap type="users" id="usersResult">
+ 		<result column="NAME" property="name"/>
+ 		<result column="USER_ID" property="user_id"/>
+ 		<result column="PWD" property="pwd"/>
+ 		<result column="GENDER" property="GENDER"/>
+ 		<result column="EMAIL1" property="EMAIL1"/>
+ 		<result column="EMAIL2" property="EMAIL2"/>
+ 		<result column="TEL1" property="TEL1"/>
+ 		<result column="TEL2" property="TEL2"/>
+ 		<result column="TEL3" property="TEL3"/>
+ 		<result column="ZIPCODE" property="ZIPCODE"/>
+ 		<result column="ADDR1" property="ADDR1"/>
+ 		<result column="ADDR2" property="ADDR2"/>
+ 	</resultMap>
+ 	
+ 	<select id="isExistId" parameterType="String" resultType="users">
+ 		select * from users where user_id=#{user_id}
+ 	</select>
+ 	
+ 	<insert id="usersWrite" parameterType="users">
+ 		insert into users values(#{name},#{user_id},#{pwd},#{gender},#{email1},#{email2},#{tel1},#{tel2},#{tel3},#{zipcode},#{addr1},#{addr2})
+ 	</insert>
+ 	
+ 	<select id="usersLogin" parameterType="java.util.Map" resultType="users">
+ 		select * from users where user_id=#{user_id} and pwd=#{pwd}
+ 	</select>
+ 	
+ 	<select id="getUsers" parameterType="String" resultType="users">
+ 		select * from users where user_id=#{user_id}
+ 	</select>
+ 	
+ 	<update	id="updateUsers" parameterType="users">
+ 		update users 
+ 		set name=#{name}, pwd=#{pwd}, gender=#{gender}, email1=#{email1}, email2=#{email2},
+ 			 tel1=#{tel1}, tel2=#{tel2}, tel3=#{tel3}, zipcode=#{zipcode}, addr1=#{addr1}, 
+ 			 addr2=#{addr2} where user_id=#{user_id}
+ 	</update>
+ </mapper>

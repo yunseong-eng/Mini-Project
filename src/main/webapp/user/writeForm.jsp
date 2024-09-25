@@ -18,6 +18,7 @@
 					<td>
 						<input type="text" name="user_id" id="user_id" autofocus placeholder="아이디입력">
 						<input type="hidden" id="check" value="">
+						<div id="checkidbox"></div>
 					</td>
 				</tr>
 				<tr>
