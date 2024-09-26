@@ -49,6 +49,7 @@ public class ControlServlet extends HttpServlet {
             }
         }
 
+        System.out.println(realPath);
         Iterator<Object> it = properties.keySet().iterator();
         while (it.hasNext()) {
             String key = (String) it.next();
@@ -77,6 +78,8 @@ public class ControlServlet extends HttpServlet {
         String category = request.getServletPath();
         CommandProcess com = (CommandProcess) map.get(category);
         String view = null;
+        
+        System.out.println(category);
         try {
             view = com.requestPro(request, response);
         } catch (Throwable e) {

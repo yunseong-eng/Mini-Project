@@ -46,4 +46,12 @@ public class ProductDAO {
         sqlSession.commit();
         sqlSession.close();
     }
+
+	public ProductDTO getProductDetail(String productId) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+        ProductDTO dto = sqlSession.selectOne("productMapper.getProductDetail", productId);
+        sqlSession.close();
+        
+		return dto;
+	}
 }

@@ -11,10 +11,5 @@
 			<li id="sports"><a href="">SPORTS</a></li>
 		</ul>
 	</div>
-	<div class="adminMenu">
-		<ul>
-			<li id="users"><a href="">회원관리</a></li>
-			<li id="all-products"><a href="${pageContext.request.contextPath }/manager/productListFrom.do">전체상품관리</a></li>
-		</ul>
-	</div>
+
 </div>

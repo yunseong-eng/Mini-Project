@@ -14,5 +14,10 @@
         INSERT INTO PRODUCTS (ctg, product_name, product_price, product_qty, product_image, product_description)
         VALUES (#{ctg}, #{productName}, #{productPrice}, #{productQty}, #{productImage}, #{productDescription})
     </insert>
+    
+    <!-- 상세페이지 -->
+    <select id="getProductDetail" parameterType="String" resultType="product">
+        SELECT * FROM PRODUCTS WHERE product_id = #{productId}
+    </select>
 
 </mapper>
