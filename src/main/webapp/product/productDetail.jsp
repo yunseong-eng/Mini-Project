@@ -75,14 +75,7 @@
 				<div class="like">좋아요 3</div>
 			</div>
 		</div>
-		<div class="review">
-			<div class="name"><p>★★★★★</p><p>신짱구</p></div>
-			<div id="content">
-				<div class="title"><span>좋아요</span><span>2024년 9월 22일</span></div>
-				<div class="content"><p>wlfjweiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p></div>
-			<div class="like">좋아요 3</div>
-			</div>
-		</div>
+
 	</div>
 	</c:if>
 	
