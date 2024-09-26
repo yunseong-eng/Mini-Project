@@ -146,3 +146,7 @@ header img {
 #user_signup table .addr2 {
 	width: 50rem;
 }
+
+#user_signup table tr:last-child {
+	height: 6rem;
+}

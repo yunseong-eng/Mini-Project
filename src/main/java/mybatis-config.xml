@@ -6,7 +6,7 @@
 	<properties resource="db.properties" />
 
 	<typeAliases>
-		<typeAlias type="user.bean.UserDTO" alias="user"/>
+		<typeAlias type="user.bean.UsersDTO" alias="users"/>
 		 <typeAlias type="product.bean.ProductDTO" alias="product"/>
 	</typeAliases>
 	
@@ -23,7 +23,7 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource="mapper/userMapper.xml"/>
+		<mapper resource="mapper/usersMapper.xml"/>
 		<mapper resource="mapper/productMapper.xml" />
 	</mappers>
 </configuration>

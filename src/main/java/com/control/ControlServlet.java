@@ -91,10 +91,11 @@ public class ControlServlet extends HttpServlet {
         String view = null;
         try {
             view = com.requestPro(request, response);
+            System.out.println("view : " + view);
         } catch (Throwable e) {
             e.printStackTrace();
         }
-
+      
         if (view != null && !view.equals("none")) {
             RequestDispatcher dispatcher = request.getRequestDispatcher(view);
             dispatcher.forward(request, response);

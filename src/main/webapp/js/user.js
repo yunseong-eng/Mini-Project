@@ -1,24 +1,24 @@
 //회원 관련 JavaScript
 
 //아이디 중복 체크
-$('#id').focusout(function() {
-	$('#errorbox').empty();
+$('#user_id').focusout(function() {
+	$('#checkidbox').empty();
 	
 	if($('#user_id').val() == '')
-		$('#errorbox').html('먼저 아이디 입력').css('color', 'red').css('font-size', '2.5rem');
+		$('#checkidbox').html('먼저 아이디 입력').css('color', 'red').css('font-size', '1.5rem');
 	else
 		$.ajax({
 			type: 'post',
-			url: './checkId.do',
+			url: contextPath + '/user/checkId.do',
 			data: 'user_id=' + $('#user_id').val(),
 			dataType: 'text',
 			success: function(data){
 				//alert(data.trim());
 				
 				if(data.trim() == 'exist'){
-					$('#errorbox').html('사용 불가능').css('color', 'red').css('font-size', '2.5rem');
+					$('#checkidbox').html('사용 불가능').css('color', 'red').css('font-size', '1.5rem');
 				}else{
-					$('#errorbox').html('사용 가능').css('color', 'blue').css('font-size', '2.5rem');
+					$('#checkidbox').html('사용 가능').css('color', 'blue').css('font-size', '1.5rem');
 					$('#check').val($('#user_id').val());
 				}
 			},
@@ -28,72 +28,65 @@ $('#id').focusout(function() {
 		});
 });
 //유효성 검사 및 데이터 전송
-$(function(){
-	$('#signup_btn').click(function(){
-		$('#errorbox').empty();
-		if($('#user_id').val() == '') {
-			$('#errorbox').html('아이디를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#user_id').focus();
-		} else if ($('#pwd').val() == '') {
-			$('#errorbox').html('비밀번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#pwd').focus();
-		} else if ($('#repwd').val() == '') {
-			$('#errorbox').html('비밀번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#repwd').focus();
-		}else if ($('#name').val() == '') {
-			$('#errorbox').html('이름을 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#name').focus();
-		} else if ($('#email1').val() == '') {
-			$('#errorbox').html('이메일을 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#email1').focus();
-		} else if ($('#email2').val() == '') {
-			$('#errorbox').html('이메일을 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#email2').focus();
-		} else if ($('#tel2').val() == '') {
-			$('#errorbox').html('핸드폰번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#tel2').focus();
-		} else if ($('#tel3').val() == '') {
-			$('#errorbox').html('핸드폰번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#tel3').focus();
-		} else if ($('#pwd').val() != $('#repwd').val()){
-			$('#errorbox').html('비밀번호를 다시 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-		} else {
-			$.ajax({
-				type : 'post',
-				url : '${ pageContext.request.contextPath }/main/write.do',
-				data : $('#signup_user').serialize(),
-				dateType : 'text',
-				success : function(){
-					alert('회원가입이 완료되었습니다.');
-					location.href = '${ pageContext.request.contextPath }/index.jsp';
-				},
-				error : function(e){
-					alert('회원가입 실패');
-					console.log(e);
-				}
-			});
-		}
-	});
+$('#signup_btn').click(function(){
+	$('#errorbox').empty();
+	if($('#user_id').val() == '') {
+		$('#errorbox').html('아이디를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#user_id').focus();
+	} else if ($('#pwd').val() == '') {
+		$('#errorbox').html('비밀번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#pwd').focus();
+	} else if ($('#repwd').val() == '') {
+		$('#errorbox').html('비밀번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#repwd').focus();
+	}else if ($('#name').val() == '') {
+		$('#errorbox').html('이름을 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#name').focus();
+	} else if ($('#email1').val() == '') {
+		$('#errorbox').html('이메일을 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#email1').focus();
+	} else if ($('#email2').val() == '') {
+		$('#errorbox').html('이메일을 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#email2').focus();
+	} else if ($('#tel2').val() == '') {
+		$('#errorbox').html('핸드폰번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#tel2').focus();
+	} else if ($('#tel3').val() == '') {
+		$('#errorbox').html('핸드폰번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#tel3').focus();
+	} else if ($('#pwd').val() != $('#repwd').val()){
+		$('#errorbox').html('비밀번호를 다시 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+	} else {
+		$.ajax({
+			type : 'post',
+			url : contextPath + '/user/write.do',
+			data : $('#signup_user').serialize(),
+			dateType : 'text',
+			success : function(){
+				alert('회원가입이 완료되었습니다.');
+				location.href = contextPath + '/index.do';
+			},
+			error : function(e){
+				alert('회원가입 실패');
+				console.log(e);
+			}
+		});
+	}
 });
 //email selectbox 변경
-function change() {
-	// 도메인 직접 입력 or domain option 선택
-	const email3 = document.querySelector('#email3_list');
-	const email2 = document.querySelector('#email2');
-	// select 옵션 변경 시
-	email3.addEventListener('change', (event) => {
-		// option에 있는 도메인 선택 시
-		if (event.target.value !== "type") {
-			// 선택한 도메인을 input에 입력하고 disabled
-			email2.value = event.target.value
-			email2.disabled = true
-		} else { // 직접 입력 시
-			// input 내용 초기화 & 입력 가능하도록 변경
-			email2.value = ""
-			email2.disabled = false
-		}
-	});
-}
+$(document).ready(function() {
+    // 이메일 select box 변경 시 이벤트 바인딩
+    $('#email3_list').change(function() {
+        var selectedValue = $(this).val();
+        if (selectedValue !== "type") {
+            // 선택한 도메인을 input에 입력하고 비활성화
+            $('#email2').val(selectedValue).prop('disabled', true);
+        } else {
+            // 직접 입력 시 input 초기화 및 활성화
+            $('#email2').val('').prop('disabled', false);
+        }
+    });
+});
 // 우편번호
 function checkPost() {
     new daum.Postcode({
@@ -119,3 +112,16 @@ function checkPost() {
         }
     }).open();
 }
+//로그아웃
+$('#logoutBtn').click(function(){
+	$.ajax({
+		type: 'post',
+		url: contextPath + '/user/logout.do',
+		success: function(){
+			location.href = contextPath + '/index.do';
+		},
+		error: function(e){
+			console.log(e);
+		}
+	});
+});
