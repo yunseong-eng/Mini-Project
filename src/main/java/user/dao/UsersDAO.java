@@ -10,7 +10,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import user.bean.UserDTO;
 import user.bean.UsersDTO;
 
 public class UsersDAO {
@@ -42,7 +41,7 @@ public class UsersDAO {
 
 	public void usersWrite(UsersDTO usersDTO) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		sqlSession.insert("usersSQL.write", usersDTO);
+		sqlSession.insert("usersSQL.usersWrite", usersDTO);
 		sqlSession.commit();
 		sqlSession.close();
 	}
@@ -53,14 +52,14 @@ public class UsersDAO {
 		map.put("pwd", pwd);
 
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		UsersDTO usersDTO = sqlSession.selectOne("usersSQL.login", map);
+		UsersDTO usersDTO = sqlSession.selectOne("usersSQL.usersLogin", map);
 		sqlSession.close();
 		return usersDTO;
 	}
 
 	public UsersDTO getUsers(String user_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		UsersDTO usersDTO = sqlSession.selectOne("usersSQL.getMember", user_id);
+		UsersDTO usersDTO = sqlSession.selectOne("usersSQL.getUsers", user_id);
 		sqlSession.close();
 		return usersDTO;
 	}

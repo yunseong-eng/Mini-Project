@@ -6,7 +6,7 @@
 	<properties resource="db.properties" />
 
 	<typeAliases>
-		<typeAlias type="user.bean.UserDTO" alias="user"/>
+		<typeAlias type="user.bean.UsersDTO" alias="users"/>
 		 <typeAlias type="product.bean.ProductDTO" alias="product"/>
 		<!-- <typeAlias type="board.bean.BoardDTO" alias="board"/>
 		<typeAlias type="imageboard.bean.ImageboardDTO" alias="imageboard"/> -->
@@ -25,7 +25,7 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource="mapper/userMapper.xml"/>
+		<mapper resource="mapper/usersMapper.xml"/>
 		<mapper resource="mapper/productMapper.xml" />
 		<!-- <mapper resource="mapper/imageboardMapper.xml"/>
 		<mapper resource="mapper/memberMapper.xml"/> -->

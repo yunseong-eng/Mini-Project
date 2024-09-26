@@ -11,7 +11,7 @@ import user.dao.UsersDAO;
 public class WriteService implements CommandProcess {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		
+		System.out.println("성공");
 		UsersDTO usersDTO = new UsersDTO();
 		
 		usersDTO.setName(request.getParameter("name"));
@@ -26,10 +26,10 @@ public class WriteService implements CommandProcess {
 		usersDTO.setZipcode(request.getParameter("zipcode"));
 		usersDTO.setAddr1(request.getParameter("addr1"));
 		usersDTO.setAddr2(request.getParameter("addr2"));
-		
+		System.out.println("성공 2");
 		UsersDAO usersDAO = UsersDAO.getInstance();
 		usersDAO.usersWrite(usersDTO);
-		
+		System.out.println("성공 3");
 		return "none";
 	}
 }

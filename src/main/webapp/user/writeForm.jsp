@@ -11,14 +11,14 @@
 	<jsp:include page="/main/header.jsp"/>
 	<div id="user_signup">
 		<h2>회원가입</h2>
-		<form id="signup_user" action="../jsp/signup.jsp" method="POST">
+		<form id="signup_user">
 			<table border="1" style="border-collapse: collapse;">
 				<tr>
 					<td class="tag">아이디</td>
 					<td>
 						<input type="text" name="user_id" id="user_id" autofocus placeholder="아이디입력">
 						<input type="hidden" id="check" value="">
-						<div id="checkidbox"></div>
+						<div id="checkidbox" style="margin-bottom: 1.3rem"></div>
 					</td>
 				</tr>
 				<tr>
@@ -51,7 +51,7 @@
 					<td class="tag">이메일</td>
 					<td>
 						<input type="email" name="email1" id="email1" placeholder="이메일입력"/> @
-						<input type="text" name="email2" id="email2" oninput="change()"/>
+						<input type="text" name="email2" id="email2"/>
 						<select id="email3_list">
 			        		<option value="type">직접입력</option>
 			                <option value="naver.com">naver.com</option>

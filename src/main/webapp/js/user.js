@@ -60,12 +60,12 @@ $(function(){
 		} else {
 			$.ajax({
 				type : 'post',
-				url : '${ pageContext.request.contextPath }/main/write.do',
+				url : '/adidas/user/write.do',
 				data : $('#signup_user').serialize(),
 				dateType : 'text',
 				success : function(){
 					alert('회원가입이 완료되었습니다.');
-					location.href = '${ pageContext.request.contextPath }/index.do';
+					location.href = '../index.do';
 				},
 				error : function(e){
 					alert('회원가입 실패');
@@ -76,24 +76,19 @@ $(function(){
 	});
 });
 //email selectbox 변경
-function change() {
-	// 도메인 직접 입력 or domain option 선택
-	const email3 = document.querySelector('#email3_list');
-	const email2 = document.querySelector('#email2');
-	// select 옵션 변경 시
-	email3.addEventListener('change', (event) => {
-		// option에 있는 도메인 선택 시
-		if (event.target.value !== "type") {
-			// 선택한 도메인을 input에 입력하고 disabled
-			email2.value = event.target.value
-			email2.disabled = true
-		} else { // 직접 입력 시
-			// input 내용 초기화 & 입력 가능하도록 변경
-			email2.value = ""
-			email2.disabled = false
-		}
-	});
-}
+$(document).ready(function() {
+    // 이메일 select box 변경 시 이벤트 바인딩
+    $('#email3_list').change(function() {
+        var selectedValue = $(this).val();
+        if (selectedValue !== "type") {
+            // 선택한 도메인을 input에 입력하고 비활성화
+            $('#email2').val(selectedValue).prop('disabled', true);
+        } else {
+            // 직접 입력 시 input 초기화 및 활성화
+            $('#email2').val('').prop('disabled', false);
+        }
+    });
+});
 // 우편번호
 function checkPost() {
     new daum.Postcode({
@@ -119,3 +114,35 @@ function checkPost() {
         }
     }).open();
 }
+//로그인
+$(function(){
+	$('#loginBtn').click(function(){
+		$('#errorbox').empty();
+		
+		if($('#user_id').val() == '')
+			$('#errorbox').html('아이디 입력');
+		else if($('#pwd').val() == '')
+			$('#errorbox').html('비밀번호 입력');
+		else
+			$.ajax({
+				type: 'post',
+				url: '${ pageContext.request.contextPath }/user/login.do',
+				data: {
+					'user_id': $('#user_id').val(),
+					'pwd': $('#pwd').val()
+				},
+				dataType: 'text',
+				success: function(data){
+					if(data.trim() == 'fail') {
+						$('#errorbox').html("아이디 또는 비밀번호가 틀렸습니다.");
+					}
+					else {					
+						location.href = '${ pageContext.request.contextPath }/index.do';
+					}
+				},
+				error: function(e){
+					console.log(e);
+				}
+			});
+	});
+});
