@@ -68,4 +68,10 @@ public class ProductDAO {
             return sqlSession.selectOne("productMapper.getTotalProducts");
         }
     }
+
+	public ProductDTO getProductDetail(String productId) {
+		try (SqlSession sqlSession = sqlSessionFactory.openSession()){
+			return sqlSession.selectOne("productMapper.getProductDetail", productId);
+		}
+	}
 }

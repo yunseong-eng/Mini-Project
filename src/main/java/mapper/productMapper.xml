@@ -56,5 +56,10 @@
         WHERE ctg = #{ctg}
         ORDER BY product_id DESC
     </select>
+    
+    <!-- 상세페이지 -->
+    <select id="getProductDetail" parameterType="String" resultMap="productResultMap">
+        SELECT * FROM PRODUCTS WHERE product_id = #{productId}
+    </select>
 
 </mapper>
