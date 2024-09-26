@@ -1,19 +1,20 @@
 package product.bean;
 
-import java.util.Date;
-
 import lombok.Getter;
 import lombok.Setter;
+import java.util.Date;
 
 @Getter
 @Setter
 public class ProductDTO {
-	private String ctg;
-    private int product_id;
-    private String product_name;
-    private int product_price;
-    private int product_qty, hit, reply;
-    private String product_image;
-    private String product_description;
-    private Date logtime;
+    private int productId;
+    private String ctg;
+    private String productName;
+    private int productPrice;
+    private int productQty;
+    private String productImage;
+    private String productDescription;
+    private int hit;             // 조회수
+    private int reply;           // 후기 수
+    private Date logtime;        // 등록 날짜
 }

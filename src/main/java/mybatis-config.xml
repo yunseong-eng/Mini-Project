@@ -6,7 +6,7 @@
 	<properties resource="db.properties" />
 
 	<typeAliases>
-		<typeAlias type="user.bean.UserDTO" alias="user"/>
+		<typeAlias type="user.bean.UsersDTO" alias="users"/>
 		 <typeAlias type="product.bean.ProductDTO" alias="product"/>
 	</typeAliases>
 	
@@ -18,12 +18,12 @@
 				<property name="url" value="${jdbc.url}"/>
 				<property name="username" value="${jdbc.username}"/>
 				<property name="password" value="${jdbc.password}"/>
-			</dataSource> 
+			</dataSource>
 		</environment>
 	</environments>
 	
 	<mappers>
-		<mapper resource="mapper/userMapper.xml"/>
+		<mapper resource="mapper/usersMapper.xml"/>
 		<mapper resource="mapper/productMapper.xml" />
 	</mappers>
 </configuration>
