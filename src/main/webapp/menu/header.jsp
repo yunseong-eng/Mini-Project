@@ -13,8 +13,8 @@
 	</div>
 	<div class="adminMenu">
 		<ul>
-			<li id="users"><a href="">회원관리</a></li>
-			<li id="all-products"><a href="${pageContext.request.contextPath }/manager/productListFrom.do">전체상품관리</a></li>
+			<li id="users"><a href="">Users</a></li>
+			<li id="all-products"><a href="${pageContext.request.contextPath }/manager/productListFrom.do">Add</a></li>
 		</ul>
 	</div>
 </div>

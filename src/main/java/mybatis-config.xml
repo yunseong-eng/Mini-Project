@@ -8,8 +8,6 @@
 	<typeAliases>
 		<typeAlias type="user.bean.UserDTO" alias="user"/>
 		 <typeAlias type="product.bean.ProductDTO" alias="product"/>
-		<!-- <typeAlias type="board.bean.BoardDTO" alias="board"/>
-		<typeAlias type="imageboard.bean.ImageboardDTO" alias="imageboard"/> -->
 	</typeAliases>
 	
 	<environments default="development">
@@ -27,7 +25,5 @@
 	<mappers>
 		<mapper resource="mapper/userMapper.xml"/>
 		<mapper resource="mapper/productMapper.xml" />
-		<!-- <mapper resource="mapper/imageboardMapper.xml"/>
-		<mapper resource="mapper/memberMapper.xml"/> -->
 	</mappers>
 </configuration>

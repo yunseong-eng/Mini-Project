@@ -4,15 +4,57 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="productMapper">
 
-    <!-- 카테고리별 상품 조회 -->
-    <select id="getProductsByCategory" parameterType="String" resultType="product">
-        SELECT * FROM PRODUCTS WHERE ctg = #{ctg}
+    <!-- resultMap을 사용하여 DTO의 필드와 DB 컬럼을 명시적으로 매핑 -->
+    <resultMap id="productResultMap" type="product">
+        <result property="productId" column="product_id" />               <!-- 상품 ID -->
+        <result property="ctg" column="ctg" />                           <!-- 카테고리 -->
+        <result property="productName" column="product_name" />           <!-- 상품 이름 -->
+        <result property="productPrice" column="product_price" />         <!-- 상품 가격 -->
+        <result property="productQty" column="product_qty" />             <!-- 상품 수량 -->
+        <result property="productImage" column="product_image" />         <!-- 상품 이미지 -->
+        <result property="productDescription" column="product_description" /> <!-- 상품 설명 -->
+        <result property="hit" column="hit" />                           <!-- 조회수 -->
+        <result property="reply" column="reply" />                       <!-- 후기 수 -->
+        <result property="logtime" column="logtime" />                   <!-- 등록 날짜 -->
+    </resultMap>
+
+    <!-- 전체 상품 목록 조회 (페이징 없음) -->
+    <select id="getAllProducts" resultMap="productResultMap">
+        SELECT product_id, ctg, product_name, product_price, product_qty, product_image, 
+               product_description, hit, reply, logtime
+        FROM PRODUCTS
+        ORDER BY product_id DESC
+    </select>
+
+    <!-- 페이징 처리를 위한 상품 목록 조회 -->
+    <select id="getProductList" resultMap="productResultMap">
+        SELECT product_id, ctg, product_name, product_price, product_qty, product_image, 
+               product_description, hit, reply, logtime
+        FROM PRODUCTS
+        ORDER BY product_id DESC
+        LIMIT #{startNum}, #{pageSize}
+    </select>
+
+    <!-- 총 상품 수 조회 -->
+    <select id="getTotalProducts" resultType="int">
+        SELECT COUNT(*) FROM PRODUCTS
     </select>
 
     <!-- 상품 등록 -->
     <insert id="insertProduct" parameterType="product">
-        INSERT INTO PRODUCTS (ctg, product_name, product_price, product_qty, product_image, product_description)
-        VALUES (#{ctg}, #{productName}, #{productPrice}, #{productQty}, #{productImage}, #{productDescription})
+        INSERT INTO PRODUCTS (ctg, product_name, product_price, product_qty, product_image, 
+                              product_description, hit, reply, logtime)
+        VALUES (#{ctg}, #{productName}, #{productPrice}, #{productQty}, #{productImage}, 
+                #{productDescription}, 0, 0, NOW())
     </insert>
+
+    <!-- 카테고리별 상품 조회 -->
+    <select id="getProductsByCategory" resultMap="productResultMap">
+        SELECT product_id, ctg, product_name, product_price, product_qty, product_image, 
+               product_description, hit, reply, logtime
+        FROM PRODUCTS
+        WHERE ctg = #{ctg}
+        ORDER BY product_id DESC
+    </select>
 
 </mapper>
