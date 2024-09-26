@@ -36,8 +36,9 @@
 		<div id="errorbox"></div>
 	</div>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	<script type="text/javascript" src="../js/user_login.js">
+	<script type="text/javascript">
+		var contextPath = '${pageContext.request.contextPath}';
 	</script>
-	
+	<script type="text/javascript" src="${pageContext.request.contextPath }/js/user_login.js"></script>
 </body>
 </html>

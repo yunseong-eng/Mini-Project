@@ -88,7 +88,10 @@
 	</div>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	<script type="text/javascript" src="../js/user.js">
+	<script type="text/javascript">
+		var contextPath = '${pageContext.request.contextPath}';
+	</script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/js/user.js">
 	</script>
 	
 </body>

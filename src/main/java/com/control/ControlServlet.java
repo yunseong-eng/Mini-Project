@@ -79,6 +79,7 @@ public class ControlServlet extends HttpServlet {
         String view = null;
         try {
             view = com.requestPro(request, response);
+            System.out.println("view : " + view);
         } catch (Throwable e) {
             e.printStackTrace();
         }

@@ -9,7 +9,7 @@ $('#user_id').focusout(function() {
 	else
 		$.ajax({
 			type: 'post',
-			url: './checkId.do',
+			url: contextPath + '/user/checkId.do',
 			data: 'user_id=' + $('#user_id').val(),
 			dataType: 'text',
 			success: function(data){
@@ -28,52 +28,50 @@ $('#user_id').focusout(function() {
 		});
 });
 //유효성 검사 및 데이터 전송
-$(function(){
-	$('#signup_btn').click(function(){
-		$('#errorbox').empty();
-		if($('#user_id').val() == '') {
-			$('#errorbox').html('아이디를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#user_id').focus();
-		} else if ($('#pwd').val() == '') {
-			$('#errorbox').html('비밀번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#pwd').focus();
-		} else if ($('#repwd').val() == '') {
-			$('#errorbox').html('비밀번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#repwd').focus();
-		}else if ($('#name').val() == '') {
-			$('#errorbox').html('이름을 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#name').focus();
-		} else if ($('#email1').val() == '') {
-			$('#errorbox').html('이메일을 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#email1').focus();
-		} else if ($('#email2').val() == '') {
-			$('#errorbox').html('이메일을 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#email2').focus();
-		} else if ($('#tel2').val() == '') {
-			$('#errorbox').html('핸드폰번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#tel2').focus();
-		} else if ($('#tel3').val() == '') {
-			$('#errorbox').html('핸드폰번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-			$('#tel3').focus();
-		} else if ($('#pwd').val() != $('#repwd').val()){
-			$('#errorbox').html('비밀번호를 다시 입력하세요').css('color', 'red').css('font-size', '2.5rem');
-		} else {
-			$.ajax({
-				type : 'post',
-				url : '/adidas/user/write.do',
-				data : $('#signup_user').serialize(),
-				dateType : 'text',
-				success : function(){
-					alert('회원가입이 완료되었습니다.');
-					location.href = '../index.do';
-				},
-				error : function(e){
-					alert('회원가입 실패');
-					console.log(e);
-				}
-			});
-		}
-	});
+$('#signup_btn').click(function(){
+	$('#errorbox').empty();
+	if($('#user_id').val() == '') {
+		$('#errorbox').html('아이디를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#user_id').focus();
+	} else if ($('#pwd').val() == '') {
+		$('#errorbox').html('비밀번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#pwd').focus();
+	} else if ($('#repwd').val() == '') {
+		$('#errorbox').html('비밀번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#repwd').focus();
+	}else if ($('#name').val() == '') {
+		$('#errorbox').html('이름을 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#name').focus();
+	} else if ($('#email1').val() == '') {
+		$('#errorbox').html('이메일을 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#email1').focus();
+	} else if ($('#email2').val() == '') {
+		$('#errorbox').html('이메일을 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#email2').focus();
+	} else if ($('#tel2').val() == '') {
+		$('#errorbox').html('핸드폰번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#tel2').focus();
+	} else if ($('#tel3').val() == '') {
+		$('#errorbox').html('핸드폰번호를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		$('#tel3').focus();
+	} else if ($('#pwd').val() != $('#repwd').val()){
+		$('#errorbox').html('비밀번호를 다시 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+	} else {
+		$.ajax({
+			type : 'post',
+			url : contextPath + '/user/write.do',
+			data : $('#signup_user').serialize(),
+			dateType : 'text',
+			success : function(){
+				alert('회원가입이 완료되었습니다.');
+				location.href = contextPath + '/index.do';
+			},
+			error : function(e){
+				alert('회원가입 실패');
+				console.log(e);
+			}
+		});
+	}
 });
 //email selectbox 변경
 $(document).ready(function() {
@@ -114,3 +112,16 @@ function checkPost() {
         }
     }).open();
 }
+//로그아웃
+$('#logoutBtn').click(function(){
+	$.ajax({
+		type: 'post',
+		url: contextPath + '/user/logout.do',
+		success: function(){
+			location.href = contextPath + '/index.do';
+		},
+		error: function(e){
+			console.log(e);
+		}
+	});
+});
