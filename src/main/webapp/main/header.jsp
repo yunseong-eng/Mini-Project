@@ -30,7 +30,7 @@
 				<button type="button" onclick="location.href='${ pageContext.request.contextPath }/user/loginForm.do'">Login</button>
 			</c:if>
 			<c:if test="${ sessionScope.userId != null }">
-				<button type="button" onclick="location.href='${ pageContext.request.contextPath }/user/writeForm.do'">My Page</button>
+				<button type="button" onclick="location.href='${ pageContext.request.contextPath }/user/myPage.do'">My Page</button>
 				<button type="button" id="logoutBtn">Logout</button>
 			</c:if>
 		</div>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${ pageContext.request.contextPath }/css/user.css">
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/css/myPage.css">
 </head>
 <body>
 	<jsp:include page="/main/header.jsp"/>
@@ -15,51 +15,47 @@
 				<tr>
 					<td class="tag">아이디</td>
 					<td>
-						<div id="user_id" name="user_id"></div>
+						<div id="user_id">${userDTO.getUser_id() }</div>
+						<input type="hidden" id="user_id" name="user_id" value="${userDTO.getUser_id() }"/>
 					</td>
 				</tr>
 				<tr>
 					<td class="tag">이름</td>
-					<td><div name="name" id="name"></div></td>
+					<td><div id="name">${userDTO.getName() }</div></td>
 				</tr>
 				<tr>
 					<td class="tag">휴대전화</td>
 					<td>
-						<div name="tel1" class="tel"></div> - 
-	                	<div id="tel2" name="tel2" class="tel" > </div> - 
-	                	<div id="tel3" name="tel3" class="tel" > </div>
+						<div class="tel">${userDTO.getTel1() } - ${userDTO.getTel2() } - ${userDTO.getTel3() }</div>
 	            	</td>
 				</tr>
 				<tr>
 					<td class="tag">이메일</td>
 					<td>
-						<div name="email1" id="email1" > @ </div>
-						<div name="email2" id="email2"></div>
+						<div id="email" >${userDTO.getEmail1() } @ ${userDTO.getEmail2() }</div>
 					</td>
 				</tr>
 				<tr>
 					<td class="tag">성별</td>
 					<td>
-						<div name="gender" class="radio">남자</div>
-						<div name="gender" class="radio">여자</div>
+						<div id="gender">${userDTO.getGender() }</div>
 					</td>
 				</tr>
 				<tr>
 			    	<td class="tag">주소</td>
-			    	<td>
-			    		<div class="addr1" name="zipcode" id="zipcode"></div>
-			    		<div class="addr2" name="addr1" id="addr1"></div><br>
-			    		<div class="addr2" name="addr2" id="addr2"></div>
+			    	<td class="address">
+			    		<div class="addr1" id="zipcode"><pre>우편번호: ${userDTO.getZipcode() }</pre></div>
+			    		<div class="addr2" id="addr1"><pre>주소    : ${userDTO.getAddr1() }</pre></div>
+			    		<div class="addr2" id="addr2"><pre>상세주소: ${userDTO.getAddr2() }</pre></div>
 			    	</td>
 			    </tr>
 				<tr>
 					<th colspan="2">
-						<input type="button" id="signup_btn" class="bt_sty" value="회원정보수정">
+						<input type="button" id="updateFormBtn" class="bt_sty" value="회원정보수정">
 					</th>
 				</tr>
 			</table>
 	</div>
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<script type="text/javascript">
 		var contextPath = '${pageContext.request.contextPath}';

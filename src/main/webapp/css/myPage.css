@@ -16,7 +16,7 @@ html{
 	font-size: 10px;
 	background-color: #000;
 }
-#user_signup {
+#mypage {
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -24,88 +24,37 @@ html{
 	align-content: center;
 	text-align: center;
 }
-#user_signup h2 {
+#mypage h2 {
 	font-size: 3rem;
 	margin-bottom: 1.5rem;
 	margin-top: 1.5rem;
 }
-#user_signup table{
+#mypage table{
 	box-sizing: border-box;
 	padding: 15px;
 	font-size: 2rem;
-	width: 80rem;
+	width: 70rem;
 	margin: 0 auto;
 	text-align: center;
 	align-content: center;
 	border-radius: 10px;
 	background-color: #fff;
 }
-#user_signup table input {
-	text-align: left;
-	width:  50rem;
-	height: 5rem;
-	margin: .5em 0;
-	padding-left: 15px;
-	font-size: 2rem;
-}
-#user_signup table input[type=button],
-#user_signup table input[type=reset] {
-	width: 10rem;
-	height: 3rem;
-	font-size: 1.5rem;
-	text-align: center;
-	padding: 0;
-}
-#user_signup table input::placeholder {
-	color: black;
-	font-size: 1.5rem;
-}
-#user_signup table input:focus::placeholder {
-	color: blue;
-	font-weight: bold;
-	transition-property: font-size, background-color;
-	font-size: 1.3rem;
-	transition-duration: 0.5s;
-}
-#user_signup table input[name=email1],
-#user_signup table input[name=email2] {
-	width: 18rem;
-}
-#user_signup table select {
-	width: 10rem;
-	height: 3rem;
-}
-#user_signup table input:focus {
-	background-color: #B0B0B0;
-}
-#user_signup table label {
-	display: inline-block;
-	width: 15rem;
-	height: 5rem;
-	align-content: center;
-}
-#user_signup table td.tag {
-	width: 15rem;
-}
-#user_signup table input.tel {
-	width: 17.8rem;
-	height: 4rem;
-}
-#user_signup table input[type=radio] {
-	width: 2rem;
-	height: 2rem;
-	margin-right: 1rem;
-}
-#user_signup table .addr1 {
-	width: 40.5rem;
-}
-#user_signup table .addr1_btn {
-	height: 3rem;
-}
-#user_signup table .addr2 {
-	width: 50rem;
-}
-
-#user_signup table tr:last-child {
+#mypage table tr {
 	height: 6rem;
+}
+#mypage table tr .tag{
+	width: 12rem;
+}
+#mypage table .address {
+	text-align: left;
+	height: 8.5rem;
+}
+#mypage table .address pre {
+	display: inline-block;
+	margin-left: .5rem;
+}
+#updateFormBtn {
+	width: 12rem;
+	height: 3rem;
 }

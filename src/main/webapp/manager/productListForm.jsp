@@ -37,7 +37,7 @@
 </style>
 </head>
 <body>
-    <jsp:include page="../menu/header.jsp"/>
+    <jsp:include page="${pageContext.request.contextPath}/main/header.jsp"/>
     <div id="products">
         <table>
             <tr>
