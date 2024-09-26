@@ -82,7 +82,7 @@ public class ControlServlet extends HttpServlet {
         } catch (Throwable e) {
             e.printStackTrace();
         }
-        
+      
         if (view != null && !view.equals("none")) {
             RequestDispatcher dispatcher = request.getRequestDispatcher(view);
             dispatcher.forward(request, response);

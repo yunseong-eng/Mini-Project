@@ -18,7 +18,7 @@
 				<tr>
 					<td class="tag">아이디</td>
 					<td>
-						<input type="text" name="user_id" id="user_id" autofocus placeholder="아이디입력">
+						<input type="text" name="login_id" id="login_id" autofocus placeholder="아이디입력">
 					</td>
 				</tr>
 				<tr>
@@ -36,7 +36,7 @@
 		<div id="errorbox"></div>
 	</div>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	<script type="text/javascript" src="../js/user.js">
+	<script type="text/javascript" src="../js/user_login.js">
 	</script>
 	
 </body>

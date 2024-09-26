@@ -114,35 +114,3 @@ function checkPost() {
         }
     }).open();
 }
-//로그인
-$(function(){
-	$('#loginBtn').click(function(){
-		$('#errorbox').empty();
-		
-		if($('#user_id').val() == '')
-			$('#errorbox').html('아이디 입력');
-		else if($('#pwd').val() == '')
-			$('#errorbox').html('비밀번호 입력');
-		else
-			$.ajax({
-				type: 'post',
-				url: '${ pageContext.request.contextPath }/user/login.do',
-				data: {
-					'user_id': $('#user_id').val(),
-					'pwd': $('#pwd').val()
-				},
-				dataType: 'text',
-				success: function(data){
-					if(data.trim() == 'fail') {
-						$('#errorbox').html("아이디 또는 비밀번호가 틀렸습니다.");
-					}
-					else {					
-						location.href = '${ pageContext.request.contextPath }/index.do';
-					}
-				},
-				error: function(e){
-					console.log(e);
-				}
-			});
-	});
-});
