@@ -47,6 +47,9 @@
     #preview {
         margin-top: 10px;
         display: block;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
     }
 
 </style>
@@ -58,7 +61,7 @@
 
     <main>
         <form id="productWriteForm" method="post" enctype="multipart/form-data" 
-              action="${ pageContext.request.contextPath }/product/productWrite.do">
+              action="${ pageContext.request.contextPath }/manager/productWrite.do">
             <table>
                 <tr>
                     <th>상품명</th>
@@ -91,7 +94,7 @@
                     <th>상품 이미지</th>
                     <td>
                         <input type="file" name="productImage" id="productImage" required>
-                        <img id="preview" width="100" height="100">
+                        <img id="preview" src="" alt="미리보기 이미지" style="display:none;">
                     </td>
                 </tr>
                 <tr>
@@ -104,13 +107,30 @@
     </main>
 
     <script>
-        // 이미지 미리보기 기능 추가
+        //이미지 미리보기 기능 추가
         document.getElementById("productImage").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+
+            //파일이 없으면 미리보기 이미지 숨김
+            if (!file) {
+                document.getElementById("preview").style.display = "none";
+                return;
+            }
+
+            //파일이 이미지가 아니면 경고
+            if (!file.type.startsWith("image/")) {
+                alert("이미지 파일을 선택해주세요.");
+                document.getElementById("preview").style.display = "none";
+                return;
+            }
+
             const reader = new FileReader();
             reader.onload = function() {
-                document.getElementById("preview").src = reader.result;
+                const preview = document.getElementById("preview");
+                preview.src = reader.result;
+                preview.style.display = "block";
             };
-            reader.readAsDataURL(event.target.files[0]);
+            reader.readAsDataURL(file);
         });
     </script>
 </body>

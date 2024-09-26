@@ -93,3 +93,6 @@ nav a {
 	line-height: 200%;
 	text-decoration : none;
 }
+#banner {
+	margin :0;
+}

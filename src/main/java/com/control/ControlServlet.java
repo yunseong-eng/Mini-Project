@@ -30,8 +30,10 @@ public class ControlServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         String propertyConfig = config.getInitParameter("propertyConfig");
+        System.out.println("propertyConfig = " + propertyConfig);
         String realFolder = config.getServletContext().getRealPath("/WEB-INF");
         String realPath = realFolder + "/" + propertyConfig;
+        System.out.println("realPath = " + realPath);
 
         FileInputStream fin = null;
         Properties properties = new Properties();
@@ -39,6 +41,7 @@ public class ControlServlet extends HttpServlet {
         try {
             fin = new FileInputStream(realPath);
             properties.load(fin);
+            System.out.println("properties = "+properties);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -47,18 +50,27 @@ public class ControlServlet extends HttpServlet {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            
         }
+        System.out.println();
 
         Iterator<Object> it = properties.keySet().iterator();
         while (it.hasNext()) {
             String key = (String) it.next();
+            System.out.println("key = " + key);
             String className = properties.getProperty(key);
+            System.out.println("className = "+ className);
             try {
                 Class<?> classType = Class.forName(className);
                 Object ob = classType.getConstructor().newInstance();
+                
+                System.out.println("ob = "+ob);
+                
                 map.put(key, ob);
             } catch (Exception e) {
                 e.printStackTrace();
+             
+                System.out.println();    
             }
         }
     }
