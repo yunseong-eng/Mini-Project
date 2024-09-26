@@ -167,8 +167,54 @@
 	color: #ccc;
 }
 
+/* 리뷰 */
+
 #review{
 	clear: both;
 	margin: 100px auto;
-	width: 1200px;
+	width: 800px; height: 100%;
+}
+
+#reviewTitle{
+	padding: 20px 10px;
+	border-top: 1px solid #333;
+	border-bottom:1px solid #ccc;
+}
+
+.review{
+	clear:both;
+	padding: 30px 10px;
+	border-bottom:1px solid #ccc;
+}
+
+.review .name{
+	width: 200px; height: 100%;
+	float: left;
+}
+.review .name p:nth-child(1){
+	margin-bottom: 10px;
+	color: green;
+}
+
+.review #content {
+	width: 600px;
+}
+.review #content .title{
+	padding-bottom: 10px;
+}
+.review #content .title span:nth-child(1){
+	font-weight: bold;
+}
+.review #content .title span:nth-child(2){
+	float: right;
+	color:#333; font-size: 0.8em;
+}
+
+.review #content .content p{
+	word-break: break-all;
+	white-space: pre-line;
+	line-height: 25px;
+}
+.review #content .like{
+	color: tomato; font-size: 0.8em;
 }
