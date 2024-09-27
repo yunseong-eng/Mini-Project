@@ -4,5 +4,17 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reviewMapper">
 
+<select id="getReviewList" parameterType="String" resultType="review">
+	SELECT * FROM REVIEW WHERE product_id = #{productId}
+</select>
+
+<select id="getCommentList" parameterType="String" resultType="comment">
+	SELECT * FROM COMMENT WHERE product_id=#{productId}
+</select>
+
+<insert id="commentWrite" parameterType="java.util.Map">
+	INSERT INTO COMMENT (product_id, review_id, user_id, comment_iontent) 
+				values( #{product_id}, #{review_id}, #{user_id}, #{comment_iontent}) 
+</insert>
 
 </mapper>

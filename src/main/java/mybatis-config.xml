@@ -8,6 +8,8 @@
 	<typeAliases>
 		<typeAlias type="user.bean.UsersDTO" alias="users"/>
 		 <typeAlias type="product.bean.ProductDTO" alias="product"/>
+		 <typeAlias type="review.bean.ReviewDTO" alias="review"/>
+		 <typeAlias type="review.bean.CommentDTO" alias="comment"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -25,5 +27,6 @@
 	<mappers>
 		<mapper resource="mapper/usersMapper.xml"/>
 		<mapper resource="mapper/productMapper.xml" />
+		<mapper resource="mapper/reviewMapper.xml" />
 	</mappers>
 </configuration>

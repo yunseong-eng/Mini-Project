@@ -74,4 +74,11 @@ public class ProductDAO {
 			return sqlSession.selectOne("productMapper.getProductDetail", productId);
 		}
 	}
+	
+	//카테고리별 상품 조회
+    public List<ProductDTO> getProductsList(Map<String, Object> map) {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            return sqlSession.selectList("productMapper.getProductsList", map);
+        }
+    }
 }

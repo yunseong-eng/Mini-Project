@@ -56,26 +56,32 @@
 			</div>
 		</div>
 	</div>
-		
+	
 	<div id="review">
-		<div id="reviewTitle">리뷰 (${dto.reply})</div>
-		<div class="review">
-			<div class="name"><p>★★★★★</p><p>신짱구</p></div>
-			<div id="content">
-				<div class="title"><span>좋아요</span><span>2024년 9월 22일</span></div>
-				<div class="content"><p>wlfjweiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p></div>
-			<div class="like">좋아요 3</div>
-			</div>
-		</div>
-		<div class="review">
-			<div class="name"><p>★★★★★</p><p>신짱구</p></div>
-			<div id="content">
-				<div class="title"><span>좋아요</span><span>2024년 9월 22일</span></div>
-				<div class="content"><p>wlfjweiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p></div>
-				<div class="like">좋아요 3</div>
-			</div>
-		</div>
-
+		<div id="reviewTitle">리뷰 (${dto.reply})<span>▽</span></div>
+		<c:if test="${ reviewList != null }">
+			<c:forEach var="item" items="${reviewList }">
+					<div class="review" style="display: none;">
+						<div class="name"><p>★★★★★</p><p>${item.user_id }</p></div>
+						<div id="content">
+							<div class="title">${item.review_title }</div>
+							<div class="content"><p>${item.review_content }</p></div>
+							<div class="like"><span>좋아요 ${item.review_like }</span> <span id="comment" class="${item.review_id }">댓글 </span></div>
+						</div>
+						<div id="date"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${item.logtime }"/></div>
+					</div>
+					
+					
+					<div id="commentDiv" class="${item.review_id }Div" style="display: none;">
+						<jsp:include page="./commentListForm.jsp">
+							<jsp:param name="reviewId" value="${item.review_id}" />
+						</jsp:include>
+					</div>
+			</c:forEach>
+		</c:if>
+		<c:if test="${reivewList == null }">
+			<div id="reviewNone" class="review" style="display: none;">리뷰가 없습니다.</div>
+		</c:if>
 	</div>
 	</c:if>
 	
@@ -85,6 +91,23 @@ $('.size').click(function(){
 	$(this).addClass('sizeClick');
 	$('.size').not(this).removeClass('sizeClick');
 })
+
+$('.like #comment').click(function(){
+	if(${commentList != null}){
+		// 현재 클릭한 #comment의 부모 요소인 .review를 찾습니다.
+	    var reviewDiv = $(this).closest('.review'); 
+	    // 해당 reviewDiv 내에 있는 commentDiv를 찾습니다.
+	    reviewDiv.next('#commentDiv').slideToggle(200); // 슬라이드 토글
+	}else{
+		alert('댓글없음');
+	}
+});
+
+$('#reviewTitle').click(function(){
+	$('.review').slideToggle(200); // commentDiv의 표시 상태를 토글
+	$('#commentDiv').slideUp(200); // commentDiv의 표시 상태를 토글
+});
+
 </script>
 </body>
 </html>
