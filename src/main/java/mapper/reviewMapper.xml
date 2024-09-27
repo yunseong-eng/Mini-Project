@@ -9,8 +9,16 @@
 </select>
 
 <select id="getCommentList" parameterType="String" resultType="comment">
-	SELECT * FROM COMMENT WHERE product_id = #{productId}
+	SELECT * FROM COMMENT WHERE product_id=#{productId}
 </select>
 
+<insert id="commentWrite" parameterType="java.util.Map">
+	INSERT INTO COMMENT (product_id, review_id, user_id, comment_iontent) 
+				values( #{product_id}, #{review_id}, #{user_id}, #{comment_iontent}) 
+</insert>
+
+<select id="getCommentList" parameterType="String" resultType="comment">
+	SELECT * FROM COMMENT WHERE product_id = #{productId}
+</select>
 
 </mapper>
