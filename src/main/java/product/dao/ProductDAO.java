@@ -68,4 +68,26 @@ public class ProductDAO {
             return sqlSession.selectOne("productMapper.getTotalProducts");
         }
     }
+   
+    //상품삭제
+    public void deleteProduct(int productId) {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            sqlSession.delete("productMapper.deleteProduct", productId);
+            sqlSession.commit();
+        }
+    }
+    
+    //상품수정
+    public ProductDTO getProductById(int productId) {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            return sqlSession.selectOne("productMapper.getProductById", productId);
+        }
+    }
+    //DB반영
+    public void updateProduct(ProductDTO productDTO) {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            sqlSession.update("productMapper.updateProduct", productDTO);
+            sqlSession.commit();
+        }
+    }
 }

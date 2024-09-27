@@ -17,16 +17,7 @@
         <result property="reply" column="reply" />                       <!-- 후기 수 -->
         <result property="logtime" column="logtime" />                   <!-- 등록 날짜 -->
     </resultMap>
-
-    <!-- 전체 상품 목록 조회 (페이징 없음) -->
-    <select id="getAllProducts" resultMap="productResultMap">
-        SELECT product_id, ctg, product_name, product_price, product_qty, product_image, 
-               product_description, hit, reply, logtime
-        FROM PRODUCTS
-        ORDER BY product_id DESC
-    </select>
-
-    <!-- 페이징 처리를 위한 상품 목록 조회 -->
+    <!-- 상품 목록 조회 -->
     <select id="getProductList" resultMap="productResultMap">
         SELECT product_id, ctg, product_name, product_price, product_qty, product_image, 
                product_description, hit, reply, logtime
@@ -40,13 +31,6 @@
         SELECT COUNT(*) FROM PRODUCTS
     </select>
 
-    <!-- 상품 등록 -->
-    <insert id="insertProduct" parameterType="product">
-        INSERT INTO PRODUCTS (ctg, product_name, product_price, product_qty, product_image, 
-                              product_description, hit, reply, logtime)
-        VALUES (#{ctg}, #{productName}, #{productPrice}, #{productQty}, #{productImage}, 
-                #{productDescription}, 0, 0, NOW())
-    </insert>
 
     <!-- 카테고리별 상품 조회 -->
     <select id="getProductsByCategory" resultMap="productResultMap">
@@ -56,5 +40,37 @@
         WHERE ctg = #{ctg}
         ORDER BY product_id DESC
     </select>
-
+    
+    <!-- 상품 등록 -->
+    <insert id="insertProduct" parameterType="product">
+        INSERT INTO PRODUCTS (ctg, product_name, product_price, product_qty, product_image, 
+                              product_description, hit, reply, logtime)
+        VALUES (#{ctg}, #{productName}, #{productPrice}, #{productQty}, #{productImage}, 
+                #{productDescription}, 0, 0, NOW())
+    </insert>
+    
+    <!-- 상품삭제 -->
+    <delete id="deleteProduct">
+    DELETE FROM PRODUCTS WHERE product_id = #{productId}
+	</delete>
+	
+	<!-- 상품 ID로 특정 상품 조회(수정) -->
+    <select id="getProductById" resultMap="productResultMap" parameterType="int">
+        SELECT product_id, ctg, product_name, product_price, product_qty, product_image, 
+               product_description, hit, reply, logtime
+        FROM PRODUCTS
+        WHERE product_id = #{productId}
+    </select>
+    
+    <!-- 수정처리  -->
+    <update id="updateProduct" parameterType="product">
+    UPDATE PRODUCTS 
+    SET product_name = #{productName}, 
+        product_price = #{productPrice}, 
+        product_qty = #{productQty}, 
+        ctg = #{ctg}, 
+        product_description = #{productDescription}, 
+        product_image = #{productImage} 
+    WHERE product_id = #{productId}
+	</update>
 </mapper>

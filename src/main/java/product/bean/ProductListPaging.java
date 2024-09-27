@@ -15,31 +15,30 @@ public class ProductListPaging {
     public void makePagingHTML() {
         pagingHTML = new StringBuffer();
 
-        //총 페이지 수 계산
-        int totalP = (totalA + pageSize - 1) / pageSize;
+        int totalP = (totalA + pageSize - 1) / pageSize; //총 페이지 수 계산
 
-        //시작 페이지와 끝 페이지 계산
-        int startPage = (currentPage - 1) / pageBlock * pageBlock + 1;
-        int endPage = startPage + pageBlock - 1;
-        if (endPage > totalP) endPage = totalP;
+        int startPage = (currentPage - 1) / pageBlock * pageBlock + 1; //시작 페이지 계산
+        int endPage = startPage + pageBlock - 1;  //끝 페이지 계산
+        if (endPage > totalP) endPage = totalP;  //끝 페이지가 총 페이지 수를 초과할 경우 조정
 
-        //[이전] 버튼 생성
-        if (startPage > 1) {
-            pagingHTML.append("<span id='paging' onclick='productPaging(").append(startPage - 1).append(")'>이전</span>");
+        //이전 버튼
+        if (currentPage > 1) {
+            pagingHTML.append("<span class='paging' data-page='").append(currentPage - 1).append("'>이전</span>");
         }
 
-        //각 페이지 번호 생성
+        //페이지 번호
         for (int i = startPage; i <= endPage; i++) {
             if (i == currentPage) {
-                pagingHTML.append("<span id='currentPaging' onclick='productPaging(").append(i).append(")'>").append(i).append("</span>");
+                pagingHTML.append("<span id='currentPaging' data-page='").append(i).append("'>").append(i).append("</span>");
             } else {
-                pagingHTML.append("<span id='paging' onclick='productPaging(").append(i).append(")'>").append(i).append("</span>");
+                pagingHTML.append("<span class='paging' data-page='").append(i).append("'>").append(i).append("</span>");
             }
         }
 
-        //[다음] 버튼 생성
-        if (endPage < totalP) {
-            pagingHTML.append("<span id='paging' onclick='productPaging(").append(endPage + 1).append(")'>다음</span>");
+        //다음 버튼
+        if (currentPage < totalP) {
+            pagingHTML.append("<span class='paging' data-page='").append(currentPage + 1).append("'>다음</span>");
         }
     }
+
 }
