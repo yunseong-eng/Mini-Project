@@ -1,4 +1,7 @@
 @charset "UTF-8";
+*{
+	font-family: 'Nanum Gothic', 'sans-serif';
+}
 #title{
 	margin: 0 auto;
 	font-size: 1.3em;
@@ -106,10 +109,10 @@
 #products .name{
 	float: left;
 	width: 85%;
-	display: block; /* 블록 요소로 변경 */
-    overflow: hidden; /* 넘치는 텍스트 숨기기 */
-    white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
-    text-overflow: ellipsis; /* ... 표시 */
+	display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 #products #detail .ctg{
