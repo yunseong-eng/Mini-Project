@@ -19,7 +19,7 @@
 </c:if>
 </c:forEach>
 
-<c:if test="${sessionScope.userId != null && !sessionScope.userId.isEmpty()}">
+<c:if test="${sessionScop.userId != null && !sessionScope.userId.isEmpty()}">
 <div id="commentWriteList" class="${param.reviewId }Comment"></div>
 <div class="blank"></div>
 <div class="comment">
