@@ -46,7 +46,7 @@
 				</div>
 				<div id="detail">
 					<div><p class="name">${item.productName }</p><img src="../image/heart_none.png" class="like"/></div>
-					<div class="ctg">${item.productDescription }</div>
+					<div class="ctg">Originals</div>
 				</div>
 			</div>
 		</c:forEach> 

@@ -105,17 +105,22 @@
 
 #products .name{
 	float: left;
-	width: 94%;
+	width: 85%;
+	display: block; /* 블록 요소로 변경 */
+    overflow: hidden; /* 넘치는 텍스트 숨기기 */
+    white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+    text-overflow: ellipsis; /* ... 표시 */
 }
 
 #products #detail .ctg{
 	clear: both;
 	font-size: 0.8em;
-	margin-top: 5px;
+	padding-top:10px;
 	color: #767677;
 }
 
 #products #detail .like{
+	float: right;
 	width: 15px; height: 15px;
 }
 
@@ -167,8 +172,12 @@
 }
 
 .productDetail #name{
+	word-break: break-all;
+	white-space: pre-line;
+	line-height: 25px;
 	margin-bottom: 10px;
 	font-size: 1.6em; font-weight: bold;
+	
 }
 
 .productDetail #price{
@@ -314,6 +323,9 @@
 }
 
 .productDescription{
+	word-break: break-all;
+	white-space: pre-line;
+	line-height: 25px;
 	clear:both;
 	padding: 30px 10px;
 	border-bottom:1px solid #ccc;
