@@ -10,6 +10,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import product.bean.ProductDTO;
+import product.dao.ProductDAO;
 import review.bean.CommentDTO;
 import review.bean.ReviewDTO;
 
@@ -49,6 +51,7 @@ public class ReviewDAO {
 	            return sqlSession.selectList("reviewMapper.getCommentList", productId);
 	        }
 	}
+
 	
 	// 댓글 쓰기
 	public void commentWrite(Map<String, Object> map) {
@@ -60,3 +63,4 @@ public class ReviewDAO {
 	}
     
 }
+

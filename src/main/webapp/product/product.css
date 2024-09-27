@@ -7,7 +7,6 @@
 }
 
 /* 상품 테이블 */
-
 #filter{
 	margin: 0 auto;
 	width: 990px; height: 50px;
@@ -286,7 +285,6 @@
 	width: 800px; height: 100px; line-height: 100px;
 	border-bottom: 1px solid #ccc;
 }
-
 /* 댓글 */
 
 #commentDiv{

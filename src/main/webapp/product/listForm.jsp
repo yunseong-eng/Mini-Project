@@ -53,7 +53,6 @@
 	</div>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
-
 $(function(){
 	 var alignValueId = $('#id').val(); // align 값 가져오기
 	 var alignValueClass = $('#class').val();
@@ -72,10 +71,9 @@ $(function(){
 $('.img,  .name, .priceDiv').click(function(){
 	var productId = $(this).closest('.product').attr('id');
 	console.log(productId)
-	
+
 	location.href="/adidas/product/detailForm.do?productId=" + productId;			
 });
-
 
 $('.selected').click(function(){
 	const selected = document.querySelector('.selected');

@@ -7,9 +7,9 @@
 
 	<typeAliases>
 		<typeAlias type="user.bean.UsersDTO" alias="users"/>
-		 <typeAlias type="product.bean.ProductDTO" alias="product"/>
-		 <typeAlias type="review.bean.ReviewDTO" alias="review"/>
-		 <typeAlias type="review.bean.CommentDTO" alias="comment"/>
+		<typeAlias type="product.bean.ProductDTO" alias="product"/>
+		<typeAlias type="review.bean.ReviewDTO" alias="review"/>
+		<typeAlias type="review.bean.CommentDTO" alias="comment"/>
 	</typeAliases>
 	
 	<environments default="development">

@@ -40,4 +40,20 @@
  			 tel1=#{tel1}, tel2=#{tel2}, tel3=#{tel3}, zipcode=#{zipcode}, addr1=#{addr1}, 
  			 addr2=#{addr2} where user_id=#{user_id}
  	</update>
- </mapper>
+ 	<delete id="deleteUser" parameterType="String">
+ 		delete from users where user_id=#{user_id}
+ 	</delete>
+ 	
+ 	<!-- 전체 회원 수 조회 -->
+    <select id="getTotalUsers" resultType="int">
+        SELECT COUNT(*) FROM users
+    </select>
+    
+    <!-- 회원 목록 조회 (페이징 처리) -->
+    <select id="getUserList" resultType="user.bean.UsersDTO" parameterType="map">
+        SELECT user_id, name, gender, email1, email2, tel1, tel2, tel3, addr1, addr2 
+        FROM users
+        ORDER BY user_id
+        LIMIT #{startNum}, #{pageSize}
+    </select>
+</mapper>
