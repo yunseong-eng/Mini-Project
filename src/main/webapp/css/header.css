@@ -107,7 +107,7 @@ nav a {
 }
 #searchBox {
 	padding-top : 2.8rem;
-	right: 19rem;
+	right: 15.5rem;
 	position: absolute;
     width: 0; /* 기본 너비를 0으로 설정 */
     overflow: hidden; /* 넘치는 내용은 숨김 */
@@ -121,10 +121,10 @@ nav a {
 	padding: .2rem;
 }
 #search_imgbox {
-	margin-top: 2.2rem;
+	margin-top: 2rem;
 	margin-right : 0;
 	position: absolute;
-	right: 17rem;
+	right: 13rem;
 	border-radius: 5%;
 	background-color: #FFF;
 }
