@@ -19,7 +19,7 @@
 		<div id="history"><a href="${pageContext.request.contextPath }/index.do">Home</a> / <a href="${pageContext.request.contextPath }/product/listForm.do?ctg=${dto.ctg }">${dto.ctg }</a></div>
 
 		<div class="img">
-			<img alt="상품이미지" src="../storage/${dto.productImage }" id="img">
+			<img alt="상품이미지" src="${pageContext.request.contextPath}/${dto.productImage }" id="img">
 		</div>
 		
 		<div class="productDetail">
