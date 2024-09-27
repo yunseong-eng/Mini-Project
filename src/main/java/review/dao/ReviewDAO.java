@@ -61,6 +61,13 @@ public class ReviewDAO {
 	        }
 		
 	}
+	//댓글 삭제
+	public void deleteComment(String comment_id) {
+		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            sqlSession.selectList("reviewMapper.deleteComment", comment_id);
+            sqlSession.commit();
+        }
+	}
     
 }
 

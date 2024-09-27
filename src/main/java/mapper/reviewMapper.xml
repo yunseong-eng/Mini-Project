@@ -18,4 +18,8 @@
 	SELECT * FROM COMMENT WHERE product_id = #{productId}
 </select>
 
+<delete id="deleteComment" parameterType="String">
+	DELETE FROM COMMENT WHERE COMMENT_ID = #{comment_id}
+</delete>
+
 </mapper>
