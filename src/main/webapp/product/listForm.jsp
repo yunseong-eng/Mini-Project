@@ -38,13 +38,13 @@
 	<div id="products">
 	<c:if test="${ list != null }">
 		<c:forEach var="item" items="${list }">
-			<div class="product" id="${item.productId }">
-				<img alt="상품이미지" src="../image/${item.productImage }" id="img">
+			<div class="product" id="${item.productId }" >
+				<img alt="상품이미지" src="../image/${item.productImage }" class="img">
 				<div class="priceDiv">
 					<div class="price"><fmt:formatNumber pattern="#,###" value="${item.productPrice }"/> 원</div>
 				</div>
 				<div id="detail">
-					<div><p class="name">${item.productName }</p><p class="like">♡</p></div>
+					<div><p class="name">${item.productName }</p><img src="../image/heart_none.png" class="like"/></div>
 					<div class="ctg">${item.productDescription }</div>
 				</div>
 			</div>
@@ -69,9 +69,9 @@ $(function(){
 	    });
 })
 
-$('.product').click(function(){
-	
-	var productId = $(this).attr('id')
+$('.img,  .name, .priceDiv').click(function(){
+	var productId = $(this).closest('.product').attr('id');
+	console.log(productId)
 	
 	location.href="/adidas/product/detailForm.do?productId=" + productId;			
 });
@@ -115,6 +115,35 @@ $('.selected').click(function(){
 	});
 	
 });
+
+$('#detail .like').hover(
+	function(){
+		$(this).attr('src','../image/heart.png');
+	}, 
+	function(){
+		$(this).attr('src','../image/heart_none.png');	
+	}
+);
+
+$('#detail .like').click(function(){
+	
+	var productId = $(this).closest('.product').attr('id');
+	
+	$.ajax({
+		type : 'post',
+		url : '/adidas/product/productOrder.do',
+		data : {
+			'product_id' : productId
+		},
+		success : function(){
+			
+		},
+		error : function(e){
+			console.log(e)
+		}
+	});
+
+})
 
 </script>
 </body>

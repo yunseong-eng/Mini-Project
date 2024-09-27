@@ -19,7 +19,7 @@
 </c:if>
 </c:forEach>
 
-<%-- <c:if test="${sessionScope.memId != null}"> --%>
+<c:if test="${sessionScope.userId != null && !sessionScope.userId.isEmpty()}">
 <div id="commentWriteList" class="${param.reviewId }Comment"></div>
 <div class="blank"></div>
 <div class="comment">
@@ -28,16 +28,15 @@
 		<div class="name">
 			<input type="hidden" name="product_id" value="${dto.productId }"/>
 			<input type="hidden" name="review_id" value="${param.reviewId }"/>
-			<input type="hidden" name="user_id" value="shinchan"/>
-			<%-- ${sessionScope.memeId } --%>
-			@${sessionScope.memeId }shinchan 님
+			<input type="hidden" name="user_id" value="${sessionScope.userId }"/>
+			@${sessionScope.userId } 님
 		</div>
 		<div class="iontent"><textarea name="comment_iontent"></textarea></div>
 	</div>
 	<div id="commentBtn"><input type="button" value="댓글" id="btn" onclick="return submitComment(this);"/></div>
 </form>
 </div>
-<%-- </c:if> --%>
+</c:if>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">

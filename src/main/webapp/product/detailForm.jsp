@@ -52,7 +52,7 @@
 			</div>
 			
 			<div id="buyBtn">
-				<input type="button" value="구매하기"/>
+				<input type="button" value="구매하기"id="${dto.productId }" />
 			</div>
 		</div>
 	</div>
@@ -66,21 +66,22 @@
 						<div id="content">
 							<div class="title">${item.review_title }</div>
 							<div class="content"><p>${item.review_content }</p></div>
-							<div class="like"><span>좋아요 ${item.review_like }</span> <span id="comment" class="${item.review_id }">댓글 </span></div>
+							<div class="like"><span>좋아요 ${item.review_like }</span> <span id="comment" class="${item.review_id }">댓글 ${countComment }</span></div>
 						</div>
 						<div id="date"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${item.logtime }"/></div>
 					</div>
 					
 					
-					<div id="commentDiv" class="${item.review_id }Div" style="display: none;">
+					<div id="commentDiv" class="${item.review_id }Div commentDiv" style="display: none;">
 						<jsp:include page="./commentListForm.jsp">
 							<jsp:param name="reviewId" value="${item.review_id}" />
 						</jsp:include>
 					</div>
 			</c:forEach>
 		</c:if>
-		<c:if test="${reivewList == null }">
-			<div id="reviewNone" class="review" style="display: none;">리뷰가 없습니다.</div>
+		
+		<c:if test="${ reviewList == null || reviewList.isEmpty() }">
+			<div id="reviewNone" class="review1" style="display: none;">리뷰가 없습니다.</div>
 		</c:if>
 	</div>
 	</c:if>
@@ -98,16 +99,39 @@ $('.like #comment').click(function(){
 	    var reviewDiv = $(this).closest('.review'); 
 	    // 해당 reviewDiv 내에 있는 commentDiv를 찾습니다.
 	    reviewDiv.next('#commentDiv').slideToggle(200); // 슬라이드 토글
-	}else{
-		alert('댓글없음');
 	}
 });
 
 $('#reviewTitle').click(function(){
-	$('.review').slideToggle(200); // commentDiv의 표시 상태를 토글
-	$('#commentDiv').slideUp(200); // commentDiv의 표시 상태를 토글
+	
+	if(${reviewList != null && !reviewList.isEmpty()}){
+		$('.review').slideToggle(200); // commentDiv의 표시 상태를 토글
+		$('.commentDiv').slideUp(200); // commentDiv의 표시 상태를 토글
+	}else if(${ reviewList == null || reviewList.isEmpty() }){
+        $('.review1').slideToggle(200);
+	}
+	
 });
 
+$('#buyBtn input[type=button]').click(function(){
+	
+	var productId = $(this).attr('id');
+	
+	$.ajax({
+		type : 'post',
+		url : '/adidas/product/productOrder.do',
+		data : {
+			'product_id' : productId
+		},
+		success : function(){
+			alert('구매가 완료되었습니다.')
+		},
+		error : function(e){
+			console.log(e)
+		}
+	});
+
+})
 </script>
 </body>
 </html>

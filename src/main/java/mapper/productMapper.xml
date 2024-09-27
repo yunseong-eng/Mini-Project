@@ -68,5 +68,14 @@
         WHERE ctg = #{ctg}
         ORDER BY ${filter} ${align}
     </select>
-
+    
+    <!-- 조회수 -->
+	<update id="updateHit" parameterType="String" >
+		UPDATE PRODUCTS SET HIT=HIT+1 WHERE product_id=#{productId}
+	</update>
+	
+	<!-- 주문 -->
+	 <insert id="insertOrder" parameterType="java.util.Map">
+        INSERT INTO ORDERS (user_id, product_id, product_qty) values(#{user_id},#{product_id},1)
+    </insert>
 </mapper>

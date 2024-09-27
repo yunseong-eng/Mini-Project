@@ -69,7 +69,6 @@
 }
 
 #products img{
-
 	width: 100%; height: 300px;
 	
 }
@@ -104,6 +103,10 @@
 	font-size: 0.8em;
 	margin-top: 5px;
 	color: #767677;
+}
+
+#products #detail .like{
+	width: 15px; height: 15px;
 }
 
 .product:hover{
@@ -215,8 +218,9 @@
 }
 
 /* 리뷰 */
-
 #review{
+	display: flex;
+    flex-direction: column; /* 세로 방향으로 정렬 */
 	clear: both;
 	margin: 100px auto;
 	width: 800px; height: 100%;
@@ -244,17 +248,6 @@
 }
 
 .review #content {
-	width: 600px;
-}
-.review #content .title{
-	padding-bottom: 10px;
-}
-.review #content .title span:nth-child(1){
-	font-weight: bold;
-}
-.review #content .title span:nth-child(2){
-	float: right;
-	color:#333; font-size: 0.8em;
 	width: 400px;
 	float: left;
 }
@@ -267,14 +260,12 @@
 	float: right;
 	color:#333; font-size: 0.8em;
 }
-
 .review #content .content p{
 	word-break: break-all;
 	white-space: pre-line;
 	line-height: 25px;
 }
 .review #content .like{
-	color: tomato; font-size: 0.8em;
 	margin-top: 30px;
 	text-align: right;
 }
@@ -293,6 +284,7 @@
 	margin: 0 auto;
 	text-align: center;
 	width: 800px; height: 100px; line-height: 100px;
+	border-bottom: 1px solid #ccc;
 }
 
 /* 댓글 */
