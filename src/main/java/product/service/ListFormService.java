@@ -27,7 +27,7 @@ public class ListFormService implements CommandProcess {
 		align = (align != null && !align.isEmpty()) ? align : "desc";
 		
 		Map<String, Object> map = new HashMap<>();
-		map.put("ctg", ctg != null ? ctg : "men"); // 기본 카테고리 설정
+		map.put("ctg", ctg != null ? ctg : "MEN"); // 기본 카테고리 설정
 		map.put("filter", filter); // 기본 정렬 기준
 		map.put("align", align); // 기본 정렬 방향
 		
