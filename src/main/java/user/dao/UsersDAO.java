@@ -3,6 +3,7 @@ package user.dao;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
@@ -71,4 +72,23 @@ public class UsersDAO {
 		sqlSession.close();
 	}
 
+	// 1.전체 회원 수 조회 메서드 추가
+	public int getTotalUsers() {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int totalUsers = sqlSession.selectOne("usersSQL.getTotalUsers");
+		sqlSession.close();
+		return totalUsers;
+	}
+
+	// 2.회원 목록 조회 메서드 추가 (페이징 처리)
+	public List<UsersDTO> getUserList(int startNum, int pageSize) {
+		Map<String, Integer> map = new HashMap<>();
+		map.put("startNum", startNum);
+		map.put("pageSize", pageSize);
+
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<UsersDTO> userList = sqlSession.selectList("usersSQL.getUserList", map);
+		sqlSession.close();
+		return userList;
+	}
 }
