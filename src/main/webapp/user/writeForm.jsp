@@ -84,7 +84,7 @@
 						readonly placeholder="주소"><br> <input type="text"
 						class="addr2" name="addr2" id="addr2" size="60" placeholder="상세주소"></td>
 				</tr>
-				<<tr>
+				<tr>
 					<th colspan="2"><div id="errorbox"></div></th>
 				</tr>
 				<tr>

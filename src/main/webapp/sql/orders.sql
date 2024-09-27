@@ -6,6 +6,6 @@ CREATE TABLE ORDERS(
 	product_qty int default 0,				-- 상품 개수
 	logtime timestamp default current_timestamp,	-- 주문 날짜
 
-	foreign key (user_id) references users(id), -- users 테이블과 연관
+	foreign key (user_id) references users(user_id), -- users 테이블과 연관
 	foreign key (product_id) references products(product_id) -- products 테이블과 연관
 );

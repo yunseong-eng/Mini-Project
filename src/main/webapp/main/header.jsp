@@ -25,11 +25,13 @@
 				<li><a href="${pageContext.request.contextPath}/product/productList.do?category=WOMEN">WOMEN</a></li>
 				<li><a href="${pageContext.request.contextPath}/product/productList.do?category=KIDS">KIDS</a></li>
 				<li><a href="${pageContext.request.contextPath}/product/productList.do?category=SPORTS">SPORTS</a></li>
-				
 				<c:if test="${ sessionScope.userId == 'admin' }">
-					<li><a href="${pageContext.request.contextPath }/manager/productListFrom.do">회원관리</a></li>
-					<li><a href="${pageContext.request.contextPath }/manager/productListFrom.do">전체상품관리</a></li>
-					<li><a href="${pageContext.request.contextPath }/manager/productListFrom.do">상품등록</a></li>
+				<li></li>
+				<li></li>
+				<li></li>
+					<li><a href="${pageContext.request.contextPath }/manager/productWriteForm.do">ADD</a></li>
+					<li><a href="${pageContext.request.contextPath }/manager/productListForm.do">LIST</a></li>
+					<li><a href="${pageContext.request.contextPath }/manager/userListForm.do">USERS</a></li>
 				</c:if>
 			</ul>
 		</nav>

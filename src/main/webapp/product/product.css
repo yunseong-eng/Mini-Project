@@ -1,0 +1,348 @@
+@charset "UTF-8";
+#title{
+	margin: 0 auto;
+	font-size: 1.3em;
+	padding: 50px 20px;
+	width: 990px;
+}
+
+/* 상품 테이블 */
+#filter{
+	margin: 0 auto;
+	width: 990px; height: 50px;
+	text-align: right;
+}
+
+.filter{
+	width: 80px; height: 40px;
+	background: #000; color: #fff;
+	border: 0px;
+}
+
+#filter .productAlign{
+	position:relative;
+	width: 150px; height: 40px;
+	text-align: center;
+	float: right;
+}
+
+.selected{
+    width: 150px; height: 38px; line-height: 40px;
+    border: 1px solid #000;
+    background-color: #fff;
+    cursor: pointer;	
+}
+
+.options {
+    display: none; /* 기본적으로 숨김 */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.option {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background-color: #f0f0f0; /* hover 시 배경색 */
+}
+
+#products{
+	margin: 0 auto;
+	padding-top: 30px;
+	width: 990px; height: 100%;
+	border-top: 1px solid #ccc;
+}
+
+.product{
+	float: left;
+	margin: 5px 5px;
+	width: 320px; height: 360px;
+	cursor: pointer;
+}
+
+#products img{
+
+	width: 100%; height: 300px;
+	
+}
+
+.priceDiv{
+	position: relative;
+	top: -20px;	
+}
+
+#products .price{
+	margin: 0 5px;
+	width: 80px; height: 20px; line-height: 20px;
+	font-size: 0.8em;
+	background: #fff;
+	text-align: center;
+}
+
+#products #detail{
+	position: relative; top: -20px;
+	clear: both;
+	display: block; overflow: auto;
+	padding: 10px 20px;
+}
+
+#products .name{
+	float: left;
+	width: 94%;
+}
+
+#products #detail .ctg{
+	clear: both;
+	font-size: 0.8em;
+	margin-top: 5px;
+	color: #767677;
+}
+
+.product:hover{
+	border: 1px solid #000; box-sizing: border-box;
+}
+
+/* productDetail */
+#productDetail{
+	margin: 0 auto;
+	width: 1200px; height: 700px;
+}
+
+#productDetail #history{
+	padding: 10px 0;
+}
+
+#productDetail #history a{
+	color: #000; text-decoration: none;
+}
+#productDetail #history a:hover{
+	text-decoration: underline;
+}
+#productDetail .img{
+	float: left;
+}
+#productDetail .img img{
+	width: 700px; height: 660px;
+}
+.productDetail{
+	float: left;
+	padding: 0 60px;
+	width: 500px; height: 660px;
+	box-sizing: border-box;
+}
+.productDetail #ctg{
+	margin-bottom: 10px;
+	width: 100%;
+}
+.productDetail #ctg span:nth-child(1){
+	color: #767677;
+	font-size: 1.0em;
+	text-transform: uppercase;
+}
+.productDetail #ctg span:nth-child(2){
+	float:right;
+	color: #000; font-size: 0.8em;
+	line-height: 18px;
+}
+
+.productDetail #name{
+	margin-bottom: 10px;
+	font-size: 1.6em; font-weight: bold;
+}
+
+.productDetail #price{
+	margin-bottom: 50px;
+	font-size: 1.0em; font-weight: bold;
+}
+
+.productDetail #color h4{
+	padding: 10px 0;
+}
+
+.productDetail #size{
+	margin-top: 50px;
+}
+
+.productDetail #size table{
+	margin-top: 10px;
+	width: 100%;
+}
+.productDetail #size table td{
+	height: 35px;
+	border: 4px solid #fff;
+}
+.productDetail .size{
+	width:100%; height: 100%;
+	font-size:0.9em; text-align: center;
+	background: #eceff1;
+	border: 0px;
+	cursor: pointer;
+}
+
+.productDetail .size:hover{
+	background: #000;
+	color: #fff;
+}
+
+.sizeClick{
+	width:100%; height: 100%;
+	font-size:0.9em; text-align: center;
+	background: #000 !important; color: #fff;
+	border: 0px;
+	cursor: pointer;
+}
+
+.productDetail #buyBtn{
+	margin-top: 50px;
+}
+
+.productDetail #buyBtn input[type=button]{
+	width: 100%; height: 35px;
+	border: 0px;
+	background: #000; color: #fff; font-weight: bold;
+}
+
+.productDetail #buyBtn input[type=button]:hover{
+	color: #ccc;
+}
+
+/* 리뷰 */
+
+#review{
+	display: flex;
+    flex-direction: column; /* 세로 방향으로 정렬 */
+	clear: both;
+	margin: 100px auto;
+	width: 800px; height: 100%;
+}
+
+#reviewTitle{
+	padding: 20px 10px;
+	border-top: 1px solid #333;
+	border-bottom:1px solid #ccc;
+}
+
+.review{
+	clear:both;
+	padding: 30px 10px;
+	border-bottom:1px solid #ccc;
+}
+
+.review .name{
+	width: 200px; height: 100%;
+	float: left;
+}
+.review .name p:nth-child(1){
+	margin-bottom: 10px;
+	color: green;
+}
+
+.review #content {
+	width: 600px;
+}
+.review #content .title{
+	padding-bottom: 10px;
+}
+.review #content .title span:nth-child(1){
+	font-weight: bold;
+}
+.review #content .title span:nth-child(2){
+	float: right;
+	color:#333; font-size: 0.8em;
+	width: 400px;
+	float: left;
+}
+.review #content .title{
+	padding-bottom: 10px;
+	font-weight: bold;
+}
+
+.review #date{
+	float: right;
+	color:#333; font-size: 0.8em;
+}
+
+.review #content .content p{
+	word-break: break-all;
+	white-space: pre-line;
+	line-height: 25px;
+}
+.review #content .like{
+	color: tomato; font-size: 0.8em;
+	margin-top: 30px;
+	text-align: right;
+}
+.review #content .like span:nth-child(1){
+	color: tomato; font-size: 0.8em;
+}
+.review #content .like span:nth-child(2){
+	padding-left: 10px;
+	color: #000; font-size: 0.8em;
+	cursor: pointer;
+}
+.review #content .like span:nth-child(2):hover{
+	color: #ccc;
+}
+#reviewNone{
+	margin: 0 auto;
+	text-align: center;
+	width: 800px; height: 100px; line-height: 100px;
+}
+/* 댓글 */
+
+#commentDiv{
+	width: 100%;
+}
+
+.blank{
+	width: 180px !important;
+	height: 20px;
+	float: left;
+}
+
+.comment{
+	width: 600px;
+	float: left;
+	padding: 20px 10px;
+	border-bottom:1px solid #ccc;
+}
+
+.comment #content{
+	float: left;
+}
+.comment #content .name{
+	font-size: 0.8em;
+	color: #333;
+	padding-bottom: 10px;
+}
+
+.comment #content .iontent{
+	width: 500px;
+}
+.comment #content textarea{
+	padding: 5px 10px;
+	width: 94%; height: 50px;
+	float: left;
+}
+
+.comment #commentBtn{
+	float: left;
+	margin-top: 24px;
+}
+
+.comment #commentBtn #btn{
+	width: 50px; height: 60px;
+	background: #000;
+	color: #fff;
+	border: 0px; border-radius: 5px;
+}
+
+
+

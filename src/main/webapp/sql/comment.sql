@@ -5,7 +5,7 @@ CREATE TABLE COMMENT(
 	review_id int not null,						-- 후기 아이디 (외래키)
 	user_id varchar(150),						-- 작성자 아이디 (외래키)
 	comment_iontent text not null,				-- 댓글 내용
-	like int default 0,							-- 좋아요
+	comment_like int default 0,							-- 좋아요
 	logtime timestamp default current_timestamp,		-- 댓글 작성 날짜
 
 	foreign key (review_id) references review(review_id),	-- review 테이블과 연관
