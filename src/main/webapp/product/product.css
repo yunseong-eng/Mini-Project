@@ -277,7 +277,11 @@
 .review #content .like span:nth-child(2):hover{
 	color: #ccc;
 }
-
+#reviewNone{
+	margin: 0 auto;
+	text-align: center;
+	width: 800px; height: 100px; line-height: 100px;
+}
 
 /* 댓글 */
 

@@ -77,7 +77,10 @@
 							<jsp:param name="reviewId" value="${item.review_id}" />
 						</jsp:include>
 					</div>
-			</c:forEach> 
+			</c:forEach>
+		</c:if>
+		<c:if test="${reivewList == null }">
+			<div id="reviewNone" class="review" style="display: none;">리뷰가 없습니다.</div>
 		</c:if>
 	</div>
 	</c:if>
