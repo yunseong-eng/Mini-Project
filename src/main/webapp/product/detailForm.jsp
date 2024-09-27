@@ -56,27 +56,6 @@
 			</div>
 		</div>
 	</div>
-	
-<<<<<<< HEAD
-			<div id="review">
-				<div id="reviewTitle">리뷰 (${dto.reply})<span>▽</span></div>
-	<c:if test="${ reviewList != null }">
-		<c:forEach var="item" items="${reviewList }">
-				<div class="review" style="display: none;">
-					<div class="name"><p>★★★★★</p><p>${item.user_id }</p></div>
-					<div id="content">
-						<div class="title">${item.review_title }</div>
-						<div class="content"><p>${item.review_content }</p></div>
-						<div class="like"><span>좋아요 ${item.review_like }</span> <span id="comment">댓글 </span></div>
-					</div>
-					<div id="date"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${item.logtime }"/></div>
-				</div>
-				<div id="commentDiv" class="${item.review_id }" style="display: none;">
-					<jsp:include page="./commentListForm.jsp"/>
-				</div>
-		</c:forEach> 
-	</c:if>
-			</div>
 
 	<div id="review">
 		<div id="reviewTitle">리뷰 (${dto.reply})<span>▽</span></div>
