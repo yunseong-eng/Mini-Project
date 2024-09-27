@@ -3,6 +3,7 @@ package review.dao;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -49,6 +50,15 @@ public class ReviewDAO {
 		 try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
 	            return sqlSession.selectList("reviewMapper.getCommentList", productId);
 	        }
+	}
+	
+	// 댓글 쓰기
+	public void commentWrite(Map<String, Object> map) {
+		 try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+	            sqlSession.selectList("reviewMapper.commentWrite", map);
+	            sqlSession.commit();
+	        }
+		
 	}
     
 }

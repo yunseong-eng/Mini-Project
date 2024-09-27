@@ -7,6 +7,52 @@
 }
 
 /* 상품 테이블 */
+#filter{
+	margin: 0 auto;
+	width: 990px; height: 50px;
+	text-align: right;
+}
+
+.filter{
+	width: 80px; height: 40px;
+	background: #000; color: #fff;
+	border: 0px;
+}
+
+#filter .productAlign{
+	position:relative;
+	width: 150px; height: 40px;
+	text-align: center;
+	float: right;
+}
+
+.selected{
+    width: 150px; height: 38px; line-height: 40px;
+    border: 1px solid #000;
+    background-color: #fff;
+    cursor: pointer;	
+}
+
+.options {
+    display: none; /* 기본적으로 숨김 */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.option {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background-color: #f0f0f0; /* hover 시 배경색 */
+}
+
 #products{
 	margin: 0 auto;
 	padding-top: 30px;
