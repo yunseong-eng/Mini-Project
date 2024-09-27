@@ -1,7 +1,7 @@
 //회원 관련 JavaScript
 
 //아이디 중복 체크
-$('#user_id').focusout(function() {
+$(document).on('focusout', '#user_id', function(){
 	$('#checkidbox').empty();
 	
 	if($('#user_id').val() == '')
@@ -21,6 +21,7 @@ $('#user_id').focusout(function() {
 					$('#checkidbox').html('사용 가능').css('color', 'blue').css('font-size', '1.5rem');
 					$('#check').val($('#user_id').val());
 				}
+				return
 			},
 			error: function(e){
 				console.log(e);
@@ -28,7 +29,7 @@ $('#user_id').focusout(function() {
 		});
 });
 //유효성 검사 및 데이터 전송
-$('#signup_btn').click(function(){
+$(document).on('click', '#signup_btn', function(){
 	$('#errorbox').empty();
 	if($('#user_id').val() == '') {
 		$('#errorbox').html('아이디를 입력하세요').css('color', 'red').css('font-size', '2.5rem');
@@ -61,7 +62,7 @@ $('#signup_btn').click(function(){
 			type : 'post',
 			url : contextPath + '/user/write.do',
 			data : $('#signup_user').serialize(),
-			dateType : 'text',
+			dataType : 'text',
 			success : function(){
 				alert('회원가입이 완료되었습니다.');
 				location.href = contextPath + '/index.do';
@@ -166,6 +167,8 @@ $('#updateBtn').click(function(){
 			$('#tel3').focus();
 		} else if ($('#pwd').val() != $('#repwd').val()) {
 			$('#errorbox').html('비밀번호를 다시 입력하세요').css('color', 'red').css('font-size', '2.5rem');
+		} else if ($('#checkpwd').val() != $('#getpwd').val()) {
+			$('#errorbox').html('비밀번호를 확인해주세요').css('color', 'red').css('font-size', '2.5rem');
 		} else {
 			$.ajax({
 				type : 'post',
@@ -182,4 +185,22 @@ $('#updateBtn').click(function(){
 				}
 			});
 		}
+});
+$('#delete_user').click(function(){
+	if(confirm('회원탈퇴를 하시겠습니까?'))
+		$.ajax({
+			type : 'post',
+			url : contextPath + '/user/deleteUser.do',
+			data : {
+				'user_id' : $('#user_id').val()
+				},
+			dataType : 'text',
+			success : function(){
+				alert('회원탈퇴완료');
+				location.href = contextPath + '/index.do';
+			},
+			error : function(e){
+				console.log(e);
+			}
+		});
 });

@@ -70,5 +70,12 @@ public class UsersDAO {
 		sqlSession.commit();
 		sqlSession.close();
 	}
+	
+	public void deleteUser(String user_id) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		sqlSession.delete("usersSQL.deleteUser", user_id);
+		sqlSession.commit();
+		sqlSession.close();
+	}
 
 }

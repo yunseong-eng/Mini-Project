@@ -15,18 +15,6 @@ html{
 	overflow-x: hidden;
 	font-size: 10px;
 }
-header {
-	display : flex;
-	height : 80px;
-	background-color : lightgray;
-	justify-content : flex-end;
-}
-header img {
-	width : 100px;
-	height : 80px;
-	object-fit : contain;
-	margin-left : 10px;
-}
 #banner {
 	margin-right : auto;
 }

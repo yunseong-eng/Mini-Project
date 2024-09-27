@@ -86,59 +86,32 @@
     <footer>
         <p>아디다스코리아(유) | OOOOO OOO OOO OOO OOOO, OOOO OOO OO OOO (00000) | 대표자: OOO | 사업자 등록번호: 012-34-56789 | 통신판매업신고: 2000-서울서초-00000 | 개인정보관리책임자: OOO | 호스팅서비스사업자: 아디다스코리아(유) | 고객센터: 0000-1234 | 이메일: email1234@email1234.email.co.kr</p>
     </footer>
-    
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script type="text/javascript">
-var slideIndex1 = 0;
-var slideIndex2 = 0;
-var slideIndex3 = 0;
-var slideIndex4 = 0;
-showSlides();
+	var contextPath = '${pageContext.request.contextPath}';
+	var slideIndex = [1, 1, 1, 1];
+	var slideClasses = ["slide1", "slide2", "slide3", "slide4"];
+	
+	function showSlides() {
+	    for (let j = 0; j < slideClasses.length; j++) {
+	        var slides = document.getElementsByClassName(slideClasses[j]);
+	        if (slides.length > 0) {
+	            for (let i = 0; i < slides.length; i++) {
+	                slides[i].style.display = "none";  
+	            }
+	            if (slideIndex[j] > slides.length) {slideIndex[j] = 1}    
+	            slides[slideIndex[j] - 1].style.display = "block";  
+	            slideIndex[j]++;
+	        }
+	    }
+	    setTimeout(showSlides, 5000);
+	}
 
-function showSlides() {
-    var slide1 = document.getElementsByClassName("slide1");
-    var slide2 = document.getElementsByClassName("slide2");
-    var slide3 = document.getElementsByClassName("slide3");
-    var slide4 = document.getElementsByClassName("slide4");
-   
-    for (let i=0; i<slide1.length; i++) {
-        slide1[i].style.display = "none";
-    }
-    slideIndex1++;
-    for (let i=0; i<slide2.length; i++) {
-        slide2[i].style.display = "none";
-    }
-    slideIndex2++;
-    for (let i=0; i<slide3.length; i++) {
-        slide3[i].style.display = "none";
-    }
-    slideIndex3++;
-    for (let i=0; i<slide4.length; i++) {
-        slide4[i].style.display = "none";
-    }
-    slideIndex4++;
-    
-    if (slideIndex1 > slide1.length) {
-        slideIndex1 = 1;
-    }
-    slide1[slideIndex1 - 1].style.display = "block";
-
-    if (slideIndex2 > slide2.length) {
-        slideIndex2 = 1;
-    }
-    slide2[slideIndex2 - 1].style.display = "block";
-
-    if (slideIndex3 > slide3.length) {
-        slideIndex3 = 1;
-    }
-    slide3[slideIndex3 - 1].style.display = "block";
-
-    if (slideIndex4 > slide4.length) {
-        slideIndex4 = 1;
-    }
-    slide4[slideIndex4 - 1].style.display = "block";
-
-    setTimeout(showSlides, 5000);
-}
+	document.addEventListener("DOMContentLoaded", function() {
+	    showSlides();
+	});
 </script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/user.js"></script>
 </body>
 </html>

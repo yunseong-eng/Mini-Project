@@ -40,4 +40,7 @@
  			 tel1=#{tel1}, tel2=#{tel2}, tel3=#{tel3}, zipcode=#{zipcode}, addr1=#{addr1}, 
  			 addr2=#{addr2} where user_id=#{user_id}
  	</update>
+ 	<delete id="deleteUser" parameterType="String">
+ 		delete from users where user_id=#{user_id}
+ 	</delete>
  </mapper>

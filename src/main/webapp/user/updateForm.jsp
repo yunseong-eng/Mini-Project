@@ -11,6 +11,7 @@
 	<jsp:include page="/main/header.jsp"/>
 	<div id="user_signup">
 		<h2>회원가입</h2>
+		<input type="hidden" name="getpwd" id="getpwd" value="${userDTO.getPwd() }"/>
 		<form id="update_user">
 			<table border="1" style="border-collapse: collapse;">
 				<tr>
@@ -24,8 +25,12 @@
 					<td><input type="text" name="name" id="name" value="${userDTO.getName() }" placeholder="이름입력"></td>
 				</tr>
 				<tr>
+					<td class="tag">비밀번호확인</td>
+					<td><input type="password" name="checkpwd" id="checkpwd"placeholder="비밀번호입력"></td>
+				</tr>
+				<tr>
 					<td class="tag">비밀번호</td>
-					<td><input type="password" name="pwd" id="pwd" value="${userDTO.getPwd() }"placeholder="비밀번호입력"></td>
+					<td><input type="password" name="pwd" id="pwd" placeholder="비밀번호입력"></td>
 				</tr>
 				<tr>
 					<td class="tag">비밀번호확인</td>
@@ -78,6 +83,7 @@
 					<th colspan="2">
 						<input type="button" id="updateBtn" class="bt_sty" value="수정완료">
 						<input type="reset" id="reset_btn" class="bt_sty" value="다시작성">
+						<input type="button" id="delete_user" class="bt_sty" value="회원탈퇴">
 					</th>
 				</tr>
 			</table>

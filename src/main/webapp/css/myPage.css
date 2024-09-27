@@ -17,7 +17,8 @@ html{
 	background-color: #000;
 }
 #mypage {
-	margin: 0 auto;
+	position: relative;
+	margin: 7rem auto 0 auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -55,6 +56,10 @@ html{
 	margin-left: .5rem;
 }
 #updateFormBtn {
+	width: 12rem;
+	height: 3rem;
+}
+#myListBtn {
 	width: 12rem;
 	height: 3rem;
 }

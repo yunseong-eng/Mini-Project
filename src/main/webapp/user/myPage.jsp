@@ -52,6 +52,7 @@
 				<tr>
 					<th colspan="2">
 						<input type="button" id="updateFormBtn" class="bt_sty" value="회원정보수정">
+						<input type="button" id="myListBtn" class="bt_sty" value="구입목록">
 					</th>
 				</tr>
 			</table>
