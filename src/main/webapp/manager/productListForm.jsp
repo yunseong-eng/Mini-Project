@@ -6,8 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>List</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/productList.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/manager.css">
-<style>
+<!-- <style>
 /* 페이지 전체 스타일 */
 body {
     font-family: Arial, sans-serif;
@@ -85,16 +86,11 @@ th, td {
 #buttonWrapper #modifyBtn:hover {
     background-color: darkred;
 }
-</style>
+</style> -->
 
 </head>
 <body>
-<<<<<<< HEAD
-    <jsp:include page="${pageContext.request.contextPath}/main/header.jsp"/>
-=======
     <jsp:include page="../main/header.jsp"/>
-
->>>>>>> b3265f92576d4d1e23873bf89a1b14895f9bf799
     <div id="products">
         <!-- 상품 삭제 및 수정을 위한 form 추가 -->
         <form id="productForm" method="post" action="${pageContext.request.contextPath}/manager/productModifyForm.do">
@@ -139,7 +135,6 @@ th, td {
         	</div>
         </form>
     </div>
-
 <script>
 	//전체 선택/해제 기능
 	document.getElementById('allCheck').addEventListener('click', function() {
