@@ -56,7 +56,11 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 윤성
 	<div id="review">
 		<div id="reviewTitle">리뷰 (${dto.reply})<span>▽</span></div>
 		<c:if test="${ reviewList != null }">
@@ -93,23 +97,6 @@ $('.size').click(function(){
 })
 
 $('.like #comment').click(function(){
-	$.ajax({
-		type : 'post',
-		url : '/adidas/product/commentList.do',
-		data : {
-			'review_id' : ${reviewList.review_id},
-			'product_id' : ${reviewList.product_id}
-		},
-		success : function(){},
-		error : function(e){
-			console.log(e)
-		}
-	});
-	
-	 // 현재 클릭한 #comment의 부모 요소인 .review를 찾습니다.
-    var reviewDiv = $(this).closest('.review'); 
-    // 해당 reviewDiv 내에 있는 commentDiv를 찾습니다.
-    reviewDiv.next('#commentDiv').slideToggle(200); // 슬라이드 토글
 	if(${commentList != null}){
 		// 현재 클릭한 #comment의 부모 요소인 .review를 찾습니다.
 	    var reviewDiv = $(this).closest('.review'); 

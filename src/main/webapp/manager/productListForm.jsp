@@ -64,22 +64,25 @@ th, td {
     margin: 30px;
 }
 
-#deleteBtn, #modifyBtn {
+#buttonWrapper #deleteBtn, 
+#buttonWrapper #modifyBtn {
     background-color: black;
     color: white;
     border: none;
-    padding: 0; /* padding을 제거하여 균일하게 만듦 */
+    padding: 0;
     cursor: pointer;
     margin-right: 10px;
-    width: 120px; /* 너비 동일하게 설정 */
-    height: 40px; /* 높이 동일하게 설정 */
+    width: 120px;
+    height: 40px;
     text-align: center;
     display: inline-block;
-    line-height: 40px; /* 버튼 높이에 맞춰 line-height 조정 */
+    line-height: 40px;
     vertical-align: middle;
+    transition: background-color 0.3s ease;
 }
 
-#deleteBtn:hover, #modifyBtn:hover {
+#buttonWrapper #deleteBtn:hover, 
+#buttonWrapper #modifyBtn:hover {
     background-color: darkred;
 }
 </style>
