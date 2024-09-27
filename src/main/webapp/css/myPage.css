@@ -1,0 +1,65 @@
+@charset "UTF-8";
+* {
+	padding : 0;
+	margin : 0;
+	box-sizing : border-box;
+}
+body {
+	height: 100vh;
+	overflow-y: auto;
+	background-color: #D1D1D1;
+}
+html{
+	height: 100vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+	font-size: 10px;
+	background-color: #000;
+}
+#mypage {
+	position: relative;
+	margin: 7rem auto 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	text-align: center;
+}
+#mypage h2 {
+	font-size: 3rem;
+	margin-bottom: 1.5rem;
+	margin-top: 1.5rem;
+}
+#mypage table{
+	box-sizing: border-box;
+	padding: 15px;
+	font-size: 2rem;
+	width: 70rem;
+	margin: 0 auto;
+	text-align: center;
+	align-content: center;
+	border-radius: 10px;
+	background-color: #fff;
+}
+#mypage table tr {
+	height: 6rem;
+}
+#mypage table tr .tag{
+	width: 12rem;
+}
+#mypage table .address {
+	text-align: left;
+	height: 8.5rem;
+}
+#mypage table .address pre {
+	display: inline-block;
+	margin-left: .5rem;
+}
+#updateFormBtn {
+	width: 12rem;
+	height: 3rem;
+}
+#myListBtn {
+	width: 12rem;
+	height: 3rem;
+}

@@ -132,18 +132,6 @@ table {
 	width: 100px; height: 100px;
 }
 
-#products #deleteBtn{
-	float: left;
-	width: 100px; height: 30px;
-	background: #000;
-	color: #fff;
-	border: 0px;
-	cursor: pointer;
-}
-
-#products #deleteBtn:hover{
-	background: #333;
-}
 
 #products #page{
 	padding-top: 5px;

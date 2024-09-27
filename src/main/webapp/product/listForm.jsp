@@ -14,9 +14,10 @@
 	<jsp:include page="./header.jsp"/>
 	
 	<div id="title">
-		스포츠 운동화
+		${ ctgTitle}
 	</div>
-	
+
+	<c:if test="${list != null && !list.isEmpty()}">
 	<div id="filter">
 		<input type="button" class="filter" value="Filter"/>
 		<div class="productAlign">
@@ -34,22 +35,28 @@
 			</div>
 		</div>
 	</div>
+
 	<div id="products">
 	<c:if test="${ list != null }">
 		<c:forEach var="item" items="${list }">
-			<div class="product" id="${item.productId }">
-				<img alt="상품이미지" src="../image/${item.productImage }" id="img">
+			<div class="product" id="${item.productId }" >
+				<img alt="상품이미지" src="../storage/${item.productImage }" class="img">
 				<div class="priceDiv">
 					<div class="price"><fmt:formatNumber pattern="#,###" value="${item.productPrice }"/> 원</div>
 				</div>
 				<div id="detail">
-					<div><p class="name">${item.productName }</p><p class="like">♡</p></div>
+					<div><p class="name">${item.productName }</p><img src="../image/heart_none.png" class="like"/></div>
 					<div class="ctg">${item.productDescription }</div>
 				</div>
 			</div>
 		</c:forEach> 
 	</c:if>
 	</div>
+	</c:if>
+	
+	<c:if test="${list == null || list.isEmpty() }">
+		<div id="products">상품이 없습니다.</div>
+	</c:if>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -67,10 +74,10 @@ $(function(){
 	    });
 })
 
-$('.product').click(function(){
-	
-	var productId = $(this).attr('id')
-	
+$('.product .img,  .product .name, .product .priceDiv').click(function(){
+	var productId = $(this).closest('.product').attr('id');
+	console.log(productId)
+
 	location.href="/adidas/product/detailForm.do?productId=" + productId;			
 });
 
@@ -112,6 +119,35 @@ $('.selected').click(function(){
 	});
 	
 });
+
+$('#detail .like').hover(
+	function(){
+		$(this).attr('src','../image/heart.png');
+	}, 
+	function(){
+		$(this).attr('src','../image/heart_none.png');	
+	}
+);
+
+$('#detail .like').click(function(){
+	
+	var productId = $(this).closest('.product').attr('id');
+	
+	$.ajax({
+		type : 'post',
+		url : '/adidas/product/productOrder.do',
+		data : {
+			'product_id' : productId
+		},
+		success : function(){
+			
+		},
+		error : function(e){
+			console.log(e)
+		}
+	});
+
+})
 
 </script>
 </body>

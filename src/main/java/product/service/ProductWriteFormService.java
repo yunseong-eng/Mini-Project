@@ -9,7 +9,7 @@ public class ProductWriteFormService implements CommandProcess {
 
     @Override
     public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-        // 상품 등록 폼 페이지로 이동
+        //상품 등록 폼 페이지로 이동
         return "/manager/productWriteForm.jsp";
     }
 }

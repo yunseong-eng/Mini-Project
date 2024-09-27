@@ -15,6 +15,7 @@ html{
 	overflow-x: hidden;
 	font-size: 10px;
 	background-color: #000;
+	margin-right: calc(-1 * (100vw - 100%));
 }
 header {
 	display : flex;
@@ -25,7 +26,7 @@ header {
 	top:0;
 	z-index: 10;
 }
-header img {
+#banner .banner_img {
 	width : 100px;
 	height : 80px;
 	object-fit : contain;
@@ -36,6 +37,9 @@ header img {
 }
 #member {
 	box-sizing : border-box;
+	display: flex;
+	flex-direction: row;
+	position:relative;
 }
 #member button {
 	width : 50px;
@@ -66,6 +70,10 @@ nav {
 	justify-content: center;
 	align-content : center;
 	height: 8rem;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	transition: none;
 }
 nav ul {
 	align-content: center;
@@ -92,7 +100,56 @@ nav a {
 	text-align : center;
 	line-height: 200%;
 	text-decoration : none;
+	color: blue;
 }
 #banner {
 	margin :0;
+}
+#searchBox {
+	padding-top : 2.8rem;
+	right: 19rem;
+	position: absolute;
+    width: 0; /* 기본 너비를 0으로 설정 */
+    overflow: hidden; /* 넘치는 내용은 숨김 */
+    transition: width 0.5s ease; /* 너비 변경 시 부드럽게 전환 */
+    white-space: nowrap; /* 줄 바꿈 방지 */
+}
+#searchBox.show {
+    width: 200px; /* show 클래스가 추가될 때 height 값을 auto로 변경 */
+}
+#searchBox #search {
+	padding: .2rem;
+}
+#search_imgbox {
+	margin-top: 2.2rem;
+	margin-right : 0;
+	position: absolute;
+	right: 17rem;
+	border-radius: 5%;
+	background-color: #FFF;
+}
+#search_imgbox img{
+	width: 3.8rem;
+	height: 3.8rem;
+	overflow: hidden;
+}
+#search_imgbox label:active img {
+	transform: scale(0.9);
+ 	-webkit-transform: scale(0.9); /* 크롬, 사파리 */
+ 	-moz-transform: scale(0.9);  /* 파이어폭스 */
+ 	-ms-transform: scale(0.9); /* IE */
+  	-o-transform: scale(0.9);
+	transition: all .2s;
+}
+#search_imgbox label img {
+	transform: scale(1);
+	transition: all 0.05s ease-out;
+}
+#search_imgbox:hover img {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1); /* 크롬, 사파리 */
+  -moz-transform: scale(1.1);  /* 파이어폭스 */
+  -ms-transform: scale(1.1); /* IE */
+  -o-transform: scale(1.1);  /* 오페라 */
+  transition: all .7s;
 }

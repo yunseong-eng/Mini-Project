@@ -11,6 +11,7 @@ import java.util.Properties;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +24,11 @@ import javax.servlet.http.HttpServletResponse;
         @WebInitParam(name = "propertyConfig", value = "command.properties")
     }
 )
+@MultipartConfig(
+	    fileSizeThreshold = 1024 * 1024 * 1,  // 1MB
+	    maxFileSize = 1024 * 1024 * 10,       // 10MB
+	    maxRequestSize = 1024 * 1024 * 50     // 50MB
+	)
 public class ControlServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private Map<String, Object> map = new HashMap<String, Object>();

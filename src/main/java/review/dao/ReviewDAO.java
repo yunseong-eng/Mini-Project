@@ -51,6 +51,7 @@ public class ReviewDAO {
 	            return sqlSession.selectList("reviewMapper.getCommentList", productId);
 	        }
 	}
+
 	
 	// 댓글 쓰기
 	public void commentWrite(Map<String, Object> map) {
@@ -62,3 +63,4 @@ public class ReviewDAO {
 	}
     
 }
+
