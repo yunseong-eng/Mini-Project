@@ -14,9 +14,10 @@
 	<jsp:include page="./header.jsp"/>
 	
 	<div id="title">
-		스포츠 운동화
+		${ ctgTitle}
 	</div>
 
+	<c:if test="${list != null && !list.isEmpty()}">
 	<div id="filter">
 		<input type="button" class="filter" value="Filter"/>
 		<div class="productAlign">
@@ -51,6 +52,11 @@
 		</c:forEach> 
 	</c:if>
 	</div>
+	</c:if>
+	
+	<c:if test="${list == null || list.isEmpty() }">
+		<div id="products">상품이 없습니다.</div>
+	</c:if>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -68,7 +74,7 @@ $(function(){
 	    });
 })
 
-$('.img,  .name, .priceDiv').click(function(){
+$('.product .img,  .product .name, .product .priceDiv').click(function(){
 	var productId = $(this).closest('.product').attr('id');
 	console.log(productId)
 

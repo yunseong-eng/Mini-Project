@@ -21,10 +21,10 @@
 		<a href="#" id="banner"><img class="banner_img" src="${ pageContext.request.contextPath }/image/Adidas-logo.png" alt="adidas.logo"></a>
 		<nav id="main_menu">
 			<ul>
-				<li><a href="${pageContext.request.contextPath}/product/productList.do?category=MEN">MEN</a></li>
-				<li><a href="${pageContext.request.contextPath}/product/productList.do?category=WOMEN">WOMEN</a></li>
-				<li><a href="${pageContext.request.contextPath}/product/productList.do?category=KIDS">KIDS</a></li>
-				<li><a href="${pageContext.request.contextPath}/product/productList.do?category=SPORTS">SPORTS</a></li>
+				<li><a href="${pageContext.request.contextPath}/product/listForm.do?ctg=men">MEN</a></li>
+				<li><a href="${pageContext.request.contextPath}/product/listForm.do?ctg=women">WOMEN</a></li>
+				<li><a href="${pageContext.request.contextPath}/product/listForm.do?ctg=kids">KIDS</a></li>
+				<li><a href="${pageContext.request.contextPath}/product/listForm.do?ctg=sports">SPORTS</a></li>
 				<c:if test="${ sessionScope.userId == 'admin' }">
 				<li></li>
 				<li></li>
