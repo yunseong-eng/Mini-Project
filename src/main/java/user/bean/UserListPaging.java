@@ -7,8 +7,8 @@ import lombok.Setter;
 @Setter
 public class UserListPaging {
     private int currentPage;    // 현재 페이지 번호
-    private int pageBlock;      // 한 번에 보여줄 페이지 블록 개수
-    private int pageSize;       // 한 페이지에 보여줄 항목 수
+    private int pageBlock = 1;  // 한 번에 보여줄 페이지 블록 개수 (한 번에 1페이지씩 이동하도록 설정)
+    private int pageSize = 10;  // 한 페이지에 보여줄 항목 수 (10명씩 보여줌)
     private int totalA;         // 총 회원 수
     private StringBuffer pagingHTML; // 페이지 HTML 저장
 
@@ -29,7 +29,7 @@ public class UserListPaging {
         // 페이지 번호
         for (int i = startPage; i <= endPage; i++) {
             if (i == currentPage) {
-                pagingHTML.append("<span id='currentPaging' data-page='").append(i).append("'>").append(i).append("</span>");
+                pagingHTML.append("<span id='currentPaging' class='currentPage' data-page='").append(i).append("'>").append(i).append("</span>");
             } else {
                 pagingHTML.append("<span class='paging' data-page='").append(i).append("'>").append(i).append("</span>");
             }

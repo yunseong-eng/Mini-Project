@@ -10,7 +10,7 @@
 </head>
 <body>
 	<header>
-		<a href="#" id="banner"><img class="banner_img" src="${ pageContext.request.contextPath }/image/Adidas-logo.png" alt="adidas.logo"></a>
+		<a href="${pageContext.request.contextPath}/index.do" id="banner"><img class="banner_img" src="${ pageContext.request.contextPath }/image/Adidas-logo.png" alt="adidas.logo"></a>
 		<nav id="main_menu">
 			<ul>
 				<li><a href="${pageContext.request.contextPath}/product/listForm.do?ctg=MEN">MEN</a></li>
