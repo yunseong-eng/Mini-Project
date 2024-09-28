@@ -113,5 +113,6 @@
 	});
 </script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/user.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/user_login.js"></script>
 </body>
 </html>

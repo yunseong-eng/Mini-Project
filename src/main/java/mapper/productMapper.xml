@@ -85,5 +85,11 @@
         WHERE ctg = #{ctg}
         ORDER BY ${filter} ${align}
     </select>
+    
+    <!-- 상품검색 -->
+    <select id="searchProduct" parameterType="String" resultMap="productResultMap">
+    	SELECT * FROM PRODUCTS
+    	WHERE product_name LIKE CONCAT('%', #{search}, '%')
+    </select>
 
 </mapper>

@@ -89,12 +89,7 @@ th, td {
 
 </head>
 <body>
-<<<<<<< HEAD
-    <jsp:include page="${pageContext.request.contextPath}/main/header.jsp"/>
-=======
     <jsp:include page="../main/header.jsp"/>
-
->>>>>>> b3265f92576d4d1e23873bf89a1b14895f9bf799
     <div id="products">
         <!-- 상품 삭제 및 수정을 위한 form 추가 -->
         <form id="productForm" method="post" action="${pageContext.request.contextPath}/manager/productModifyForm.do">

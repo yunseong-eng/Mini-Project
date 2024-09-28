@@ -105,4 +105,9 @@ public class ProductDAO {
 
         }
     }
+    public List<ProductDTO> searchProduct(String search){
+    	try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            return sqlSession.selectList("productMapper.searchProduct", search);
+    	}
+    }
 }

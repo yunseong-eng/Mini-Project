@@ -119,6 +119,7 @@ nav a {
 }
 #searchBox #search {
 	padding: .2rem;
+	width: 17.5rem;
 }
 #search_imgbox {
 	margin-top: 2rem;

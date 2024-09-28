@@ -56,11 +56,6 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> 윤성
 	<div id="review">
 		<div id="reviewTitle">리뷰 (${dto.reply})<span>▽</span></div>
 		<c:if test="${ reviewList != null }">
