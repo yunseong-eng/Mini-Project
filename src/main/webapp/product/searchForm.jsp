@@ -19,9 +19,7 @@
 			<div id="filter">
 				<input type="button" class="filter" value="Filter" />
 				<div class="productAlign">
-					<form id="alignList"
-						action="${pageContext.request.contextPath }/product/listForm.do"
-						method="post">
+					<form id="alignList" action="${pageContext.request.contextPath }/product/listForm.do" method="post">
 						<input type="hidden" name="filter" value="${map.filter }" id="id" />
 						<input type="hidden" name="align" value="${map.align }" id="class" />
 						<input type="hidden" name="ctg" value="${map.ctg }" id="class" />
@@ -48,9 +46,7 @@
 				<c:if test="${ list != null }">
 					<c:forEach var="item" items="${list }">
 						<div class="product" id="${item.productId }">
-							<img alt="상품이미지"
-								src="${pageContext.request.contextPath}/${item.productImage }"
-								class="img">
+							<img alt="상품이미지" src="${pageContext.request.contextPath}/${item.productImage }" class="img">
 							<div class="priceDiv">
 								<div class="price">
 									<fmt:formatNumber pattern="#,###" value="${item.productPrice }" />
@@ -59,8 +55,7 @@
 							</div>
 							<div id="detail">
 								<div>
-									<p class="name">${item.productName }</p>
-									<img src="../image/heart_none.png" class="like" />
+									<p class="name">${item.productName }</p><img src="../image/heart_none.png" class="like" />
 								</div>
 								<div class="ctg">Originals</div>
 							</div>
