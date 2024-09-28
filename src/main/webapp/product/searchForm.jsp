@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,54 +11,64 @@
 <link rel="stylesheet" href="./product.css">
 </head>
 <body>
-   <jsp:include page="./header.jsp"/>
-   
-   <div id="title">
-   		<div>${ ctgTitle}</div>
-   </div>
+	<jsp:include page="./header.jsp" />
+		<div id="title">
+			<div>${ ctgTitle}</div>
+		</div>
 
-   <c:if test="${list != null && !list.isEmpty()}">
-   <div id="filter">
-      <input type="button" class="filter" value="Filter"/>
-      <div class="productAlign">
-      <form id="alignList" action="${pageContext.request.contextPath }/product/listForm.do" method="post">
-         <input type="hidden" name="filter" value="${map.filter }" id="id"/>
-         <input type="hidden" name="align" value="${map.align }" id="class"/>
-         <input type="hidden" name="ctg" value="${map.ctg }" id="class"/>
-      </form>
-         <div class="selected">정렬기준</div>
-         <div class="options">
-            <div class="option"><span id="logtime" class="desc">최신</span></div>
-            <div class="option"><span id="hit" class="desc">인기 상품</span></div>
-            <div class="option"><span id="product_price" class="desc">가격(높음)</span></div>
-            <div class="option"><span id="product_price" class="asc">가격(낮음)</span></div>         
-         </div>
-      </div>
-   </div>
-
-	<div id="products">
-	<c:if test="${ list != null }">
-		<c:forEach var="item" items="${list }">
-			<div class="product" id="${item.productId }" >
-				<img alt="상품이미지" src="${pageContext.request.contextPath}/${item.productImage }" class="img">
-				<div class="priceDiv">
-					<div class="price"><fmt:formatNumber pattern="#,###" value="${item.productPrice }"/> 원</div>
-				</div>
-				<div id="detail">
-					<div><p class="name">${item.productName }</p><img src="../image/heart_none.png" class="like"/></div>
-					<div class="ctg">Originals</div>
+			<div id="filter">
+				<input type="button" class="filter" value="Filter" />
+				<div class="productAlign">
+					<form id="alignList" action="${pageContext.request.contextPath }/product/listForm.do" method="post">
+						<input type="hidden" name="filter" value="${map.filter }" id="id" />
+						<input type="hidden" name="align" value="${map.align }" id="class" />
+						<input type="hidden" name="ctg" value="${map.ctg }" id="class" />
+					</form>
+					<div class="selected">정렬기준</div>
+					<div class="options">
+						<div class="option">
+							<span id="logtime" class="desc">최신</span>
+						</div>
+						<div class="option">
+							<span id="hit" class="desc">인기 상품</span>
+						</div>
+						<div class="option">
+							<span id="product_price" class="desc">가격(높음)</span>
+						</div>
+						<div class="option">
+							<span id="product_price" class="asc">가격(낮음)</span>
+						</div>
+					</div>
 				</div>
 			</div>
-		</c:forEach> 
-	</c:if>
-	</div>
-	</c:if>
-	
-	<c:if test="${list == null || list.isEmpty() }">
+
+			<div id="products">
+				<c:if test="${ list != null }">
+					<c:forEach var="item" items="${list }">
+						<div class="product" id="${item.productId }">
+							<img alt="상품이미지" src="${pageContext.request.contextPath}/${item.productImage }" class="img">
+							<div class="priceDiv">
+								<div class="price">
+									<fmt:formatNumber pattern="#,###" value="${item.productPrice }" />
+									원
+								</div>
+							</div>
+							<div id="detail">
+								<div>
+									<p class="name">${item.productName }</p><img src="../image/heart_none.png" class="like" />
+								</div>
+								<div class="ctg">Originals</div>
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
+			</div>
+	<c:if test="${empty requestScope.search }">
 		<div id="products">상품이 없습니다.</div>
 	</c:if>
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-<script type="text/javascript">
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript">
 $(function(){
     var alignValueId = $('#id').val(); // align 값 가져오기
     var alignValueClass = $('#class').val();
@@ -78,7 +88,7 @@ $('.product .img,  .product .name, .product .priceDiv').click(function(){
    var productId = $(this).closest('.product').attr('id');
    console.log(productId)
 
-   location.href="/adidas/product/detailForm.do?productId=" + productId;
+   location.href="/adidas/product/detailForm.do?productId=" + productId;         
 });
 
 $('.selected').click(function(){
@@ -146,6 +156,7 @@ $('#detail .like').click(function(){
          console.log(e)
       }
    });
+
 })
 
 </script>

@@ -56,7 +56,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div id="review">
 	    <!-- 리뷰 타이틀과 리뷰 수 -->
 	    <div id="reviewTitle">리뷰 (${fn:length(reviewList)})<span class="under">▽</span></div>
@@ -156,7 +155,6 @@ $('#buyBtn input[type=button]').click(function(){
 			console.log(e)
 		}
 	});
-
 })
 </script>
 </body>
