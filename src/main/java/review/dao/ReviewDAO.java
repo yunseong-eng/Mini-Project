@@ -68,6 +68,12 @@ public class ReviewDAO {
             sqlSession.commit();
         }
 	}
-    
+	
+	//리뷰작성
+	public void writeReview(Map<String, Object> map) {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            sqlSession.insert("reviewMapper.writeReview", map);
+            sqlSession.commit();
+        }
+	} 
 }
-

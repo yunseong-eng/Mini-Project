@@ -1,5 +1,5 @@
 //로그인
-$('#loginBtn').click(function(){
+$(document).on('click', '#loginBtn', function(){
 	$('#errorbox').empty();
 	
 	if($('#login_id').val() == '')

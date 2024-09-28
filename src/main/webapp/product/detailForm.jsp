@@ -58,31 +58,42 @@
 	</div>
 
 	<div id="review">
-		<div id="reviewTitle">리뷰 (${dto.reply})<span class="under">▽</span></div>
-		<c:if test="${ reviewList != null }">
-			<c:forEach var="item" items="${reviewList }">
-					<div class="review" style="display: none;">
-						<div class="name"><p>★★★★★</p><p>${item.user_id }</p></div>
-						<div id="content">
-							<div class="title">${item.review_title }</div>
-							<div class="content"><p>${item.review_content }</p></div>
-							<div class="like"><span>좋아요 ${item.review_like }</span> <span id="comment" class="${item.review_id }">댓글 ${countComment }</span></div>
-						</div>
-						<div id="date"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${item.logtime }"/></div>
-					</div>
-					
-					
-					<div id="commentDiv" class="${item.review_id }Div commentDiv" style="display: none;">
-						<jsp:include page="./commentListForm.jsp">
-							<jsp:param name="reviewId" value="${item.review_id}" />
-						</jsp:include>
-					</div>
-			</c:forEach>
+	    <!-- 리뷰 타이틀과 리뷰 수 -->
+	    <div id="reviewTitle">리뷰 (${fn:length(reviewList)})<span class="under">▽</span></div>
+	    
+	    <!-- 리뷰가 있을 경우 -->
+	    <c:if test="${reviewList != null && !reviewList.isEmpty()}">
+	        <c:forEach var="item" items="${reviewList}">
+	            <div class="review" style="display: none;">
+	                <div class="name"><p>★★★★★</p><p>${item.user_id}</p></div>
+	                <div id="content">
+	                    <div class="title">${item.review_title}</div>
+	                    <div class="content"><p>${item.review_content}</p></div>
+	                    <div class="like"><span>좋아요 ${item.review_like}</span> <span id="comment" class="${item.review_id}">댓글 ${countComment}</span></div>
+	                </div>
+	                <div id="date"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${item.logtime}"/></div>
+	            </div>
+	        </c:forEach>
+	    </c:if>
+	    
+	    <!-- 리뷰가 없을 경우 -->
+	    <c:if test="${reviewList == null || reviewList.isEmpty()}">
+	        <div id="reviewNone" class="review1" style="display: none;">리뷰가 없습니다.</div>
+	    </c:if>
+	</div>
+		
+	<div id="productDescription">
+		<div class="productDescriptionTitle">상세설명<span class="under">▽</span></div>
+		<div class="productDescription" style="display: none;">
+
+		<c:if test="${dto.productDescription != null && !dto.productDescription.isEmpty()}">
+			${dto.productDescription }
 		</c:if>
 		
-		<c:if test="${ reviewList == null || reviewList.isEmpty() }">
-			<div id="reviewNone" class="review1" style="display: none;">리뷰가 없습니다.</div>
+		<c:if test="${dto.productDescription  == null || dto.productDescription .isEmpty() }">
+			상세정보가 없습니다.
 		</c:if>
+		</div>
 	</div>
 		
 	<div id="productDescription">
@@ -159,7 +170,6 @@ $('#buyBtn input[type=button]').click(function(){
 			console.log(e)
 		}
 	});
-
 })
 </script>
 </body>

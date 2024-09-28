@@ -17,18 +17,29 @@ html{
 	background-color: #000;
 }
 #user_login {
+	width: 100%;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column; 
 	justify-content: center;
 	align-content: center;
 	text-align: center;
-	margin-top: 25rem;
 }
-#user_login h2 {
-	font-size: 3rem;
-	margin-bottom: 1.5rem;
-	margin-top: 1.5rem;
+.fs-5 {
+    font-size: 2rem !important;
+}
+#loginUser {
+	width:100%;
+	margin: 0 auto;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+#loginUser .xbtn {
+	position: absolute;
+	right: 10px;
+	margin: -5px;
 }
 #user_login table{
 	box-sizing: border-box;
@@ -86,7 +97,7 @@ html{
 	align-content: center;
 }
 #user_login table td.tag {
-	width: 15rem;
+	width: 12rem;
 }
 #user_login table input.tel {
 	width: 17.8rem;

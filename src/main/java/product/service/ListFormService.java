@@ -42,7 +42,7 @@ public class ListFormService implements CommandProcess {
 		}
 		
 		String ctgTitle = null;
-		
+
 		if(ctg.equals("MEN")) {
 			ctgTitle = "남자 운동화";
 		}else if(ctg.equals("WOMEN")) {
