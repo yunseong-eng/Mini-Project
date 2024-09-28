@@ -105,9 +105,27 @@ public class ProductDAO {
 
         }
     }
+    
+    //상품검색
     public List<ProductDTO> searchProduct(String search){
     	try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             return sqlSession.selectList("productMapper.searchProduct", search);
     	}
     }
+
+    //상품 조회수
+	public void updateHit(String productId) {
+		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+			sqlSession.insert("productMapper.updateHit", productId);
+			sqlSession.commit();
+	    }
+	}
+
+	public void insertOrder(Map<String, Object> map) {
+		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+			sqlSession.insert("productMapper.insertOrder", map);
+			sqlSession.commit();
+	    }
+		
+	}
 }

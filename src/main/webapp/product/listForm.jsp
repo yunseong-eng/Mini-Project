@@ -78,7 +78,7 @@ $('.product .img,  .product .name, .product .priceDiv').click(function(){
    var productId = $(this).closest('.product').attr('id');
    console.log(productId)
 
-   location.href="/adidas/product/detailForm.do?productId=" + productId;         
+   location.href="/adidas/product/detailForm.do?productId=" + productId;
 });
 
 $('.selected').click(function(){
@@ -146,7 +146,6 @@ $('#detail .like').click(function(){
          console.log(e)
       }
    });
-
 })
 
 </script>

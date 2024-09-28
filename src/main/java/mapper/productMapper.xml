@@ -79,7 +79,7 @@
         SELECT * FROM PRODUCTS WHERE product_id = #{productId}
     </select>
     
-        <!-- 카테고리별 상품 조회 -->
+    <!-- 카테고리별 상품 조회 -->
     <select id="getProductsList" parameterType="java.util.Map" resultMap="productResultMap">
         SELECT * FROM PRODUCTS
         WHERE ctg = #{ctg}
@@ -91,5 +91,14 @@
     	SELECT * FROM PRODUCTS
     	WHERE product_name LIKE CONCAT('%', #{search}, '%')
     </select>
-
+    
+    <!-- 조회수 -->
+	<update id="updateHit" parameterType="String" >
+		UPDATE PRODUCTS SET HIT=HIT+1 WHERE product_id=#{productId}
+	</update>
+	
+	<!-- 주문 -->
+	 <insert id="insertOrder" parameterType="java.util.Map">
+        INSERT INTO ORDERS (user_id, product_id, product_qty) values(#{user_id},#{product_id},1)
+    </insert>
 </mapper>

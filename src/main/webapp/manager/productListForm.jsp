@@ -6,8 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>List</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/productList.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/manager.css">
-<style>
+<!-- <style>
 /* 페이지 전체 스타일 */
 body {
     font-family: Arial, sans-serif;
@@ -85,7 +86,7 @@ th, td {
 #buttonWrapper #modifyBtn:hover {
     background-color: darkred;
 }
-</style>
+</style> -->
 
 </head>
 <body>
@@ -134,7 +135,6 @@ th, td {
         	</div>
         </form>
     </div>
-
 <script>
 	//전체 선택/해제 기능
 	document.getElementById('allCheck').addEventListener('click', function() {

@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <title>ADD</title>
-<link rel="stylesheet" href="${ pageContext.request.contextPath }/css/products.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/products.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/manager.css">
 </head>
 <body>
 	<jsp:include page="../main/header.jsp"/>
