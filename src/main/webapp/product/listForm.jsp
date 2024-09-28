@@ -40,13 +40,13 @@
 	<c:if test="${ list != null }">
 		<c:forEach var="item" items="${list }">
 			<div class="product" id="${item.productId }" >
-				<img alt="상품이미지" src="../storage/${item.productImage }" class="img">
+				<img alt="상품이미지" src="${pageContext.request.contextPath}/${item.productImage }" class="img">
 				<div class="priceDiv">
 					<div class="price"><fmt:formatNumber pattern="#,###" value="${item.productPrice }"/> 원</div>
 				</div>
 				<div id="detail">
 					<div><p class="name">${item.productName }</p><img src="../image/heart_none.png" class="like"/></div>
-					<div class="ctg">${item.productDescription }</div>
+					<div class="ctg">Originals</div>
 				</div>
 			</div>
 		</c:forEach> 

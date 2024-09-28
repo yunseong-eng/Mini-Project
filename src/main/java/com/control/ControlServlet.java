@@ -93,7 +93,19 @@ public class ControlServlet extends HttpServlet {
         if (request.getMethod().equals("POST")) request.setCharacterEncoding("UTF-8");
 
         String category = request.getServletPath();
+        System.out.println("요청된 경로: " + category);
+        
+        if (category.equals("/review/writeReview.do")) {
+            System.out.println("리뷰 작성 요청이 들어왔습니다.");
+        }
+        
         CommandProcess com = (CommandProcess) map.get(category);
+        if (com != null) {
+            System.out.println("매핑된 Command 클래스: " + com.getClass().getName());
+        } else {
+            System.out.println("매핑된 Command가 없습니다. 경로를 확인하세요: " + category);
+        }
+
         String view = null;
         try {
             view = com.requestPro(request, response);

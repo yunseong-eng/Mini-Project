@@ -27,6 +27,7 @@ public class LoginService implements CommandProcess {
 			//세션
 			HttpSession session = request.getSession(); //세션 생성
 			
+			System.out.println("user_id: " + usersDTO.getUser_id());
 			session.setAttribute("userName", usersDTO.getName());
 			session.setAttribute("userId", user_id);
 			session.setAttribute("userEmail", usersDTO.getEmail1()+"@"+usersDTO.getEmail2());
