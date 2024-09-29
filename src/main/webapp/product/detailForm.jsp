@@ -73,6 +73,11 @@
 	                </div>
 	                <div id="date"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${item.logtime}"/></div>
 	            </div>
+		    <div id="commentDiv" style="display: none;">
+		    	<jsp:include page="./commentListForm.jsp">
+		    		<jsp:param name="reviewId" value="${item.review_id}" />
+                </jsp:include>
+		    </div>
 	        </c:forEach>
 	    </c:if>
 	    
@@ -81,18 +86,19 @@
 	        <div id="reviewNone" class="review1" style="display: none;">리뷰가 없습니다.</div>
 	    </c:if>
 	</div>
-		
+	
 	<div id="productDescription">
 		<div class="productDescriptionTitle">상세설명<span class="under">▽</span></div>
 		<div class="productDescription" style="display: none;">
-
-		<c:if test="${dto.productDescription != null && !dto.productDescription.isEmpty()}">
-			${dto.productDescription }
-		</c:if>
-		
-		<c:if test="${dto.productDescription  == null || dto.productDescription .isEmpty() }">
-			상세정보가 없습니다.
-		</c:if>
+			<p>
+			<c:if test="${dto.productDescription != null && !dto.productDescription.isEmpty()}">
+				${dto.productDescription }
+			</c:if>
+			
+			<c:if test="${dto.productDescription == null || dto.productDescription.isEmpty() }">
+				상세정보가 없습니다.
+			</c:if>
+			</p>
 		</div>
 	</div>
 	</c:if>
@@ -117,14 +123,7 @@ $('.like #comment').click(function(){
 
 /* 리뷰 */
 $('.productDescriptionTitle').click(function(){
-	
-	if(${dto.productDescription != null && !dto.productDescription.isEmpty()}){
-		$('.productDescription').slideToggle(200);
-		
-	}else if(${dto.productDescription == null || dto.productDescription.isEmpty() }){
-        $('.review1').slideToggle(200);
-	}
-	
+	$('.productDescription').slideToggle(200);
 });
 
 /* 상세보기 */

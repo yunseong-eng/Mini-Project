@@ -259,6 +259,7 @@
 	clear:both;
 	padding: 30px 10px;
 	border-bottom:1px solid #ccc;
+	border-top: 1px solid #ccc;
 }
 
 .review .name{
@@ -325,7 +326,7 @@
 	border-bottom:1px solid #ccc;
 }
 
-.productDescription{
+.productDescription p{
 	word-break: break-all;
 	white-space: pre-line;
 	line-height: 25px;
@@ -353,6 +354,12 @@
 	float: left;
 	padding: 20px 10px;
 	border-bottom:1px solid #ccc;
+}
+#writeComment{
+	width: 600px;
+	float: left;
+	padding: 20px 10px;
+	border:0px;
 }
 .comment #content{
 	float: left;
