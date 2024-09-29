@@ -8,11 +8,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="./header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 <link rel="stylesheet" href="./product.css">
 </head>
 <body>
-	<jsp:include page="./header.jsp"/>
+	<jsp:include page="../main/header.jsp"/>
 	<c:if test="${ dto != null }">
 		
 	<div id="productDetail">

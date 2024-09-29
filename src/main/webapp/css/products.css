@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+/* 공통 스타일 */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	overflow-y: auto;
+	background-color: #EFEFEF;
+	font-family: 'Arial', sans-serif;
+}
+
+html {
+	height: 100vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+	font-size: 10px;
+}
+
+
+
+/* main 설정 */
+main {
+	margin: 0 auto;
+	width: 60%; /* 가로 크기 유지 */
+	max-width: 800px;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	text-align: left;
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+/* 테이블 스타일 */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 2rem;
+}
+
+table th, table td {
+	padding: 15px; /* 세로 공간을 더 넓게 */
+	font-size: 1.5rem;
+	text-align: center; /* 글씨는 가운데 정렬 */
+	border: 1px solid #ddd;
+}
+
+table th {
+	background-color: #f2f2f2;
+	width: 30%; /* 레이블의 너비 설정 */
+}
+
+table td {
+	width: 70%; /* 입력 필드의 너비 설정 */
+}
+
+/* 입력 필드 스타일 */
+input[type="text"], input[type="number"], select, textarea {
+	width: 95%;
+	height: 4rem;
+	font-size: 1.4rem; /* 글씨 크기 줄임 */
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	text-align: left; /* 입력 필드 글씨 왼쪽 정렬 */
+}
+
+select {
+	font-size: 1.2rem; /* 카테고리 글씨 크기 더 줄임 */
+}
+
+textarea {
+	resize: none;
+	height: 15rem; /* 세로 길이 추가 */
+}
+
+/* 파일 선택 필드 */
+input[type="file"] {
+	width: 95%;
+	font-size: 1.6rem;
+	padding: 5px;
+}
+
+/* 버튼 스타일 */
+input[type="submit"] {
+	width: 20%; /* 버튼 크기를 줄임 */
+	height: 4rem;
+	font-size: 1.6rem; /* 버튼 글씨 크기 유지 */
+	background-color: #000;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	align-self: flex-end; /* 버튼을 우측 정렬 */
+}
+
+input[type="submit"]:hover {
+	background-color: #333;
+}
+
+/* 이미지 미리보기 */
+#preview {
+	width: 100px;
+	height: 100px;
+	margin-top: 10px;
+	border: 1px solid #ccc;
+	object-fit: cover;
+	display: none;
+}

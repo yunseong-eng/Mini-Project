@@ -8,6 +8,8 @@
 <title>List</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/productList.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/manager.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
+
 </head>
 <body>
     <jsp:include page="../main/header.jsp"/>
@@ -55,6 +57,8 @@
         	</div>
         </form>
     </div>
+    
+    <footer id="footer"></footer>
 <script>
 	//전체 선택/해제 기능
 	document.getElementById('allCheck').addEventListener('click', function() {

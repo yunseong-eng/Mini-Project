@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/css/myPage.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 </head>
 <body>
     <jsp:include page="/main/header.jsp"/>
@@ -57,6 +58,8 @@
                 </tr>
             </table>
     </div>
+    
+    <footer id="footer"></footer>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script type="text/javascript">
         // 구입목록 버튼 클릭 시 OrderList.do로 이동

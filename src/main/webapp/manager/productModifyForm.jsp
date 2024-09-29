@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Modify</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 <style>
 main {
     margin-top: 30px; /* 헤더와 폼 사이에 공간 추가 */
@@ -168,5 +169,7 @@ header img {
         <input type="submit" value="수정 완료">
     </form>
     </main>
+    
+    <footer id="footer"></footer>
 </body>
 </html>
