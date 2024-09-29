@@ -5,15 +5,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+h2 {
+	text-align: center;
+	padding : 1.5rem 0;
+	font-size: 3rem;
+}
+#updateForm {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+</style>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/css/user.css">
 </head>
 <body>
 	<jsp:include page="/main/header.jsp"/>
-	<div id="user_signup">
-		<h2>회원가입</h2>
+	<div id="updateForm">
+		<h2>회원정보수정</h2>
 		<input type="hidden" name="getpwd" id="getpwd" value="${userDTO.getPwd() }"/>
-		<form id="update_user">
-			<table border="1" style="border-collapse: collapse;">
+		<form id="update_user" action="${pageContext.request.contextPath }/user/update.do" method="post">
+			<table>
 				<tr>
 					<td class="tag">아이디</td>
 					<td>
@@ -53,7 +65,7 @@
 				<tr>
 					<td class="tag">이메일</td>
 					<td>
-						<input type="email" name="email1" id="email1" value="${userDTO.getEmail1() }" placeholder="이메일입력"/> @
+						<input type="text" name="email1" id="email1" value="${userDTO.getEmail1() }" placeholder="이메일입력"/> @
 						<input type="text" name="email2" id="email2" value="${userDTO.getEmail2() }" />
 						<select id="email3_list">
 			        		<option value="type">직접입력</option>
@@ -79,24 +91,25 @@
 			    		<input type="text" class="addr2" name="addr2" id="addr2" size="60" value="${userDTO.getAddr2() }" placeholder="상세주소">
 			    	</td>
 			    </tr>
+			    <tr>
+			    	<th colspan="2"><div id="errorbox"></div></th>
+			    </tr>
 				<tr>
 					<th colspan="2">
-						<input type="button" id="updateBtn" class="bt_sty" value="수정완료">
+						<input type="button" id="update_Btn" class="bt_sty" value="수정완료" />
 						<input type="reset" id="reset_btn" class="bt_sty" value="다시작성">
 						<input type="button" id="delete_user" class="bt_sty" value="회원탈퇴">
 					</th>
 				</tr>
 			</table>
 		</form>
-		<div id="errorbox"></div>
+		
 	</div>
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<script type="text/javascript">
 		var contextPath = '${pageContext.request.contextPath}';
 	</script>
-	<script type="text/javascript" src="${pageContext.request.contextPath }/js/user.js">
-	</script>
-	
+	<script type="text/javascript" src="${pageContext.request.contextPath }/js/updateUser.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>

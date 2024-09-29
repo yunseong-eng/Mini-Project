@@ -18,4 +18,14 @@
 	SELECT * FROM COMMENT WHERE product_id = #{productId}
 </select>
 
+<delete id="deleteComment" parameterType="String">
+	DELETE FROM COMMENT WHERE COMMENT_ID = #{comment_id}
+</delete>
+
+<!-- 리뷰 작성 쿼리 -->
+<insert id="writeReview" parameterType="map">
+    INSERT INTO review (product_id, user_id, review_content, logtime)
+    VALUES (#{productId}, #{userId}, #{reviewContent}, NOW())
+</insert>
+
 </mapper>

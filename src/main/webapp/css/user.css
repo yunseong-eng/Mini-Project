@@ -83,7 +83,7 @@ header img {
 }
 #signup_user table{
 	box-sizing: border-box;
-	padding: 15px;
+	padding: .5rem;
 	font-size: 2rem;
 	width: auto;
 	margin: 0 auto;
@@ -166,8 +166,95 @@ header img {
 }
 
 #signup_user table tr:last-child {
-	height: 6rem;
+	height: 4rem;
 }
 .modal-lg {
 	width: auto;
+}
+#update_user table{
+	box-sizing: border-box;
+	padding: 15px;
+	font-size: 2rem;
+	width: auto;
+	margin: 0 auto;
+	text-align: center;
+	align-content: center;
+	border-radius: 10px;
+	background-color: #fff;
+}
+#update_user table input {
+	text-align: left;
+	width:  50rem;
+	height: 5rem;
+	margin: .5rem 0;
+	padding-left: 15px;
+	font-size: 2rem;
+}
+#update_user table input[type=button],
+#update_user table input[type=reset] {
+	width: 10rem;
+	height: 3rem;
+	font-size: 1.5rem;
+	text-align: center;
+	padding: 0;
+}
+#update_user table input::placeholder {
+	color: black;
+	font-size: 1.5rem;
+}
+#update_user table input:focus::placeholder {
+	color: blue;
+	font-weight: bold;
+	transition-property: font-size, background-color;
+	font-size: 1.3rem;
+	transition-duration: 0.5s;
+}
+#update_user table input[name=email1],
+#update_user table input[name=email2] {
+	width: 18rem;
+}
+#update_user table select {
+	width: 10rem;
+	height: 3rem;
+	font-size : 1.5rem;
+}
+#update_user table input:focus {
+	background-color: #B0B0B0;
+}
+#update_user table label {
+	display: inline-block;
+	width: 15rem;
+	height: 5rem;
+	align-content: center;
+}
+#update_user table td.tag {
+	width: 15rem;
+}
+#update_user table td.datainput{
+	width: auto;
+	padding-right: 6rem;
+}
+#update_user table input.tel {
+	width: 17.8rem;
+	height: 4rem;
+}
+#update_user table input[type=radio] {
+	width: 2rem;
+	height: 2rem;
+	margin-right: 1rem;
+}
+#update_user table .addr1 {
+	width: 39rem;
+}
+#update_user table .addr1_btn {
+	font-size: 1.5rem;
+	padding: 0.3rem;
+	height: 3rem;
+}
+#update_user table .addr2 {
+	width: 50rem;
+}
+
+#update_user table tr:last-child {
+	height: 4rem;
 }

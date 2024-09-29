@@ -142,6 +142,7 @@ $('#updateFormBtn').click(function(){
 		}
 	});
 });
+
 $('#updateBtn').click(function(){
 	$('#errorbox').empty();
 		if ($('#name').val() == '') {
@@ -186,6 +187,9 @@ $('#updateBtn').click(function(){
 			});
 		}
 });
+
+//회원정보 수정
+
 $('#delete_user').click(function(){
 	if(confirm('회원탈퇴를 하시겠습니까?'))
 		$.ajax({

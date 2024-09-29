@@ -4,14 +4,17 @@
 
 <c:forEach var="item2" items="${commentList}">
 <c:if test="${item2.review_id == param.reviewId}">
-<div class="blank"></div>
-<div class="comment">
+<div class="blank" id="blank_${item2.comment_id }"></div>
+<div class="comment" id="comment_${item2.comment_id }">
 	<div id="content">
 		<div class="name">
 			<input type="hidden" name="productId" value="productId"/>
 			<input type="hidden" name="reviewId" value="reviewId"/>
 			<input type="hidden" name="userId" value="userId"/>
 			@${item2.user_id } 님
+			<c:if test="${item2.user_id == sessionScope.userId }">
+				<span id="deleteBtn" class="${item2.comment_id }" onclick="return deleteComment(this);">X</span>
+			</c:if>
 		</div>
 		<div class="iontent">${item2.comment_iontent }</div>
 	</div>
@@ -21,9 +24,9 @@
 
 <c:if test="${sessionScope.userId != null && !sessionScope.userId.isEmpty()}">
 <div id="commentWriteList" class="${param.reviewId }Comment"></div>
+<form class="commentForm">
 <div class="blank"></div>
 <div class="comment">
-<form class="commentForm">
 	<div id="content">
 		<div class="name">
 			<input type="hidden" name="product_id" value="${dto.productId }"/>
@@ -31,11 +34,11 @@
 			<input type="hidden" name="user_id" value="${sessionScope.userId }"/>
 			@${sessionScope.userId } 님
 		</div>
-		<div class="iontent"><textarea name="comment_iontent"></textarea></div>
+		<div class="iontent"><textarea name="comment_iontent"></textarea><input type="button" value="댓글" id="commentBtn" onclick="return submitComment(this);"/></div>
+		<div class="errorIontent"></div>
 	</div>
-	<div id="commentBtn"><input type="button" value="댓글" id="btn" onclick="return submitComment(this);"/></div>
-</form>
 </div>
+</form>
 </c:if>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
@@ -43,6 +46,11 @@
 function submitComment(button) {
 	var $form = $(button).closest('.commentForm');
 
+	if ($form.find('textarea[name="comment_iontent"]').val().trim() === '') {
+		$form.find('.errorIontent').html('내용을 입력하세요');
+        $form.find('textarea[name="comment_iontent"]').focus();
+        return false;
+	}else{
     $.ajax({
         type: 'post',
         url: '/adidas/product/commentWrite.do',
@@ -79,7 +87,27 @@ function submitComment(button) {
             console.log(e);
         }
     });
+	}
     
     return false;
+}
+
+function deleteComment(span){
+	var comment_id = $(span).attr('class');
+	console.log(comment_id)
+	
+	$.ajax({
+		type : 'post',
+		url : '/adidas/product/deleteComment.do',
+		data : {'comment_id' : comment_id},
+		success : function(){
+			alert('댓글이 삭제되었습니다');
+			$('#comment_' + comment_id).remove();
+			$('#blank_' + comment_id).remove();
+		},
+		error : function(e){
+			console.log(e)
+		}
+	});
 }
 </script>
