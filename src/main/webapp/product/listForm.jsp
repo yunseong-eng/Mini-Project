@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="./product.css">
 </head>
 <body>
+
    <jsp:include page="./header.jsp"/>
    
    <div id="title">
@@ -75,6 +76,7 @@ $(function(){
 })
 
 $('.product .img,  .product .name, .product .priceDiv').click(function(){
+
    var productId = $(this).closest('.product').attr('id');
    console.log(productId)
 

@@ -8,9 +8,6 @@
 <div class="comment" id="comment_${item2.comment_id }">
 	<div id="content">
 		<div class="name">
-			<input type="hidden" name="productId" value="productId"/>
-			<input type="hidden" name="reviewId" value="reviewId"/>
-			<input type="hidden" name="userId" value="userId"/>
 			@${item2.user_id } 님
 			<c:if test="${item2.user_id == sessionScope.userId }">
 				<span id="deleteBtn" class="${item2.comment_id }" onclick="return deleteComment(this);">X</span>
@@ -26,7 +23,7 @@
 <div id="commentWriteList" class="${param.reviewId }Comment"></div>
 <form class="commentForm">
 <div class="blank"></div>
-<div class="comment">
+<div class="comment" id="writeComment" >
 	<div id="content">
 		<div class="name">
 			<input type="hidden" name="product_id" value="${dto.productId }"/>
@@ -48,35 +45,32 @@ function submitComment(button) {
 
 	if ($form.find('textarea[name="comment_iontent"]').val().trim() === '') {
 		$form.find('.errorIontent').html('내용을 입력하세요');
-        $form.find('textarea[name="comment_iontent"]').focus();
-        return false;
+    $form.find('textarea[name="comment_iontent"]').focus();
+    return false;
 	}else{
-    $.ajax({
-        type: 'post',
-        url: '/adidas/product/commentWrite.do',
-        data: $form.serialize(), // 현재 폼의 데이터를 직렬화
-        success: function() {
-            var userId = $form.find('input[name="user_id"]').val(); // 현재 폼의 사용자 ID
-            var commentContent = $form.find('textarea[name="comment_iontent"]').val(); // 작성한 댓글 내용
-            var productId = $form.find('input[name="product_id"]').val(); // 현재 폼의 제품 ID
-            var reviewId = $form.find('input[name="review_id"]').val(); // 현재 폼의 리뷰 ID
-        	
-            console.log(userId + ", " + commentContent + ", " + productId + ", " + reviewId)
-            // 새로운 댓글 HTML 생성
-            var newCommentHtml = `
-            	<div class="blank"></div>
-            	<div class="comment">
-            		<div id="content">
-            			<div class="name">
-            				<input type="hidden" name="productId" value=`+ productId +`>
-            				<input type="hidden" name="reviewId" value=`+ reviewId+`>
-            				<input type="hidden" name="userId" value=`+ userId +`>
-            				@`+ userId +` 님
-            			</div>
-            			<div class="iontent">` + commentContent + `</div>
-            		</div>
-            	</div>
-            `;
+$.ajax({
+    type: 'post',
+    url: '/adidas/product/commentWrite.do',
+    data: $form.serialize(), // 현재 폼의 데이터를 직렬화
+    success: function() {
+        var userId = $form.find('input[name="user_id"]').val(); // 현재 폼의 사용자 ID
+        var commentContent = $form.find('textarea[name="comment_iontent"]').val(); // 작성한 댓글 내용
+        var productId = $form.find('input[name="product_id"]').val(); // 현재 폼의 제품 ID
+        var reviewId = $form.find('input[name="review_id"]').val(); // 현재 폼의 리뷰 ID
+    		console.log(reviewId)
+        console.log(userId + ", " + commentContent + ", " + productId + ", " + reviewId)
+        // 새로운 댓글 HTML 생성
+        var newCommentHtml = `
+        	<div class="blank"></div>
+        	<div class="comment">
+        		<div id="content">
+        			<div class="name">
+        				@`+ userId +` 님
+        			</div>
+        			<div class="iontent">` + commentContent + `</div>
+        		</div>
+        	</div>
+        `;
 
             // 댓글 리스트에 추가
             $('.' + reviewId + 'Comment').append(newCommentHtml);

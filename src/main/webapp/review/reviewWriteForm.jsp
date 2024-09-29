@@ -119,13 +119,13 @@ body {
 
             <!-- 오른쪽 섹션: 리뷰 작성 폼 -->
             <div id="rightSection">
-                <h2>Writing reviews</h2>
+                <h2>Leave a Review</h2>
                 <form action="${pageContext.request.contextPath}/review/writeReview.do" method="post">
                     <input type="hidden" name="productId" value="${order.productId}">            
                     <label for="reviewContent"></label><br>
                     <textarea id="reviewContent" name="reviewContent" rows="5" required></textarea><br><br>
 
-                    <button type="submit">후기작성</button>
+                    <button type="submit">후기 작성</button>
                 </form>
             </div>
         </div>

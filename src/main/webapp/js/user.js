@@ -142,23 +142,3 @@ $('#updateFormBtn').click(function(){
 		}
 	});
 });
-//회원정보 수정
-
-$('#delete_user').click(function(){
-	if(confirm('회원탈퇴를 하시겠습니까?'))
-		$.ajax({
-			type : 'post',
-			url : contextPath + '/user/deleteUser.do',
-			data : {
-				'user_id' : $('#user_id').val()
-				},
-			dataType : 'text',
-			success : function(){
-				alert('회원탈퇴완료');
-				location.href = contextPath + '/index.do';
-			},
-			error : function(e){
-				console.log(e);
-			}
-		});
-});
