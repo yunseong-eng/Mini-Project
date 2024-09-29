@@ -7,12 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="./header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 <link rel="stylesheet" href="./product.css">
 </head>
 <body>
 
-   <jsp:include page="./header.jsp"/>
+   <jsp:include page="../main/header.jsp"/>
    
    <div id="title">
    		<div>${ ctgTitle}</div>
@@ -58,6 +58,8 @@
 	<c:if test="${list == null || list.isEmpty() }">
 		<div id="products">상품이 없습니다.</div>
 	</c:if>
+
+	<footer id="footer"></footer>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
 $(function(){

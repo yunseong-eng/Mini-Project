@@ -11,10 +11,6 @@ body {
 	height: 100vh;
 	overflow-y: auto;
 	background-color: #EFEFEF;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
 	font-family: 'Arial', sans-serif;
 }
 
@@ -23,13 +19,13 @@ html {
 	overflow-y: auto;
 	overflow-x: hidden;
 	font-size: 10px;
-	background-color: #000;
 }
 
 
 
 /* main 설정 */
 main {
+	margin: 0 auto;
 	width: 60%; /* 가로 크기 유지 */
 	max-width: 800px;
 	padding: 20px;

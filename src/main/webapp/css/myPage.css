@@ -26,14 +26,13 @@ html{
 	text-align: center;
 }
 #mypage h2 {
-	font-size: 3rem;
-	margin-bottom: 1.5rem;
-	margin-top: 1.5rem;
+	font-size: 2.5rem;
+	margin: 30px auto;
 }
 #mypage table{
 	box-sizing: border-box;
 	padding: 15px;
-	font-size: 2rem;
+	font-size: 1.8rem;
 	width: 70rem;
 	margin: 0 auto;
 	text-align: center;
@@ -58,8 +57,14 @@ html{
 #updateFormBtn {
 	width: 12rem;
 	height: 3rem;
+	border: 0px;
+	background: #000;
+	color: #fff;
 }
 #myListBtn {
 	width: 12rem;
 	height: 3rem;
+		border: 0px;
+	background: #000;
+	color: #fff;
 }

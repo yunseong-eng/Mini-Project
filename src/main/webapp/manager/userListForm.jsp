@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>User List</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/manager.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 <style>
 main {
     margin-top: 70px; 
@@ -13,6 +14,7 @@ main {
 /* 페이지 전체 스타일 */
 body {
     font-family: Arial, sans-serif;
+    font-size: 12px;
 }
 
 /* 표 스타일 */
@@ -20,7 +22,6 @@ table {
     border-collapse: collapse;
     width: 95%; /* 전체 표 너비를 늘림 */
     margin: 0 auto; /* 표를 가운데 정렬 */
-    font-size: 1.2rem; /* 글씨 크기를 조금 늘림 */
 }
 
 th, td {
@@ -74,5 +75,7 @@ th:nth-child(6), td:nth-child(6) { width: 25%; }  /* 주소 (너비를 늘림) *
             ${userPaging.pagingHTML}
         </div>
     </div>
+    
+    <footer id="footer"></footer>
 </body>
 </html>

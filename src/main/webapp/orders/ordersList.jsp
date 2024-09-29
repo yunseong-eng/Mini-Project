@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>구매 목록</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 <style>
     table {
         border-collapse: collapse;
@@ -17,7 +18,8 @@
         padding: 8px;
     }
     th {
-        background-color: #f2f2f2;
+        background-color: #000;
+        color: #fff;
     }
     .review-button {
         background-color: black;
@@ -31,10 +33,13 @@
         background-color: gray;
         color: black;
     }
+    h2{
+    	margin: 30px 20px;
+    }
 </style>
 </head>
 <body>
-    <jsp:include page="/main/header.jsp"/>
+    <jsp:include page="../main/header.jsp"/>
 
     <div id="ordersList">
         <h2>구매 목록</h2>

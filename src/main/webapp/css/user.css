@@ -1,9 +1,5 @@
 @charset "UTF-8";
-* {
-	padding : 0;
-	margin : 0;
-	box-sizing : border-box !important;
-}
+
 body {
 	height: 100vh;
 	overflow-y: auto;
@@ -14,48 +10,6 @@ html{
 	overflow-y: auto;
 	overflow-x: hidden;
 	font-size: 10px;
-	background-color: #000;
-}
-header {
-	display : flex;
-	height : 80px;
-	background-color : #fff;
-	justify-content : flex-end;
-}
-header img {
-	width : 100px;
-	height : 80px;
-	object-fit : contain;
-	margin-left : 10px;
-}
-#banner {
-	margin-right : auto;
-}
-#member {
-	box-sizing : border-box;
-}
-#member button {
-	width : 50px;
-	height : 20px;
-	border-style: none;
-	border-radius : 10px 10px;
-	background-color: #fff;
-	text-align : center;
-	color : #000;
-	font-size : 10px;
-	text-decoration : none;
-	margin : 10px 10px 0 0;
-	cursor : pointer;
-	transform: translateY(2px);
-	transition: all 0.5s;
-}
-#member button:hover {
-	border : 1px solid #7F7F7F;
-	color : #fff;
-	box-shadow: 0 0.5em 0.5em -0.4em #000;
-	background-color: #6E6E6E;
-	transform: translateY(-2px);
-	transition: all 0.5s;
 }
 #user_signup {
 	width:100%;
@@ -83,22 +37,26 @@ header img {
 }
 #signup_user table{
 	box-sizing: border-box;
-	padding: .5rem;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	width: auto;
 	margin: 0 auto;
-	text-align: center;
+	text-align: left;
 	align-content: center;
 	border-radius: 10px;
 	background-color: #fff;
 }
+
+#signup_user td{
+	padding: 5px 25px;
+}
 #signup_user table input {
 	text-align: left;
 	width:  50rem;
-	height: 5rem;
+	height: 3.5rem;
 	margin: .5em 0;
 	padding-left: 15px;
 	font-size: 2rem;
+	outline: none;
 }
 #signup_user table input[type=button],
 #signup_user table input[type=reset] {
@@ -112,16 +70,9 @@ header img {
 	color: black;
 	font-size: 1.5rem;
 }
-#signup_user table input:focus::placeholder {
-	color: blue;
-	font-weight: bold;
-	transition-property: font-size, background-color;
-	font-size: 1.3rem;
-	transition-duration: 0.5s;
-}
 #signup_user table input[name=email1],
 #signup_user table input[name=email2] {
-	width: 18rem;
+	width: 15rem;
 }
 #signup_user table select {
 	width: 10rem;
@@ -130,6 +81,7 @@ header img {
 }
 #signup_user table input:focus {
 	background-color: #B0B0B0;
+	border: 1px solid #000;
 }
 #signup_user table label {
 	display: inline-block;
@@ -138,15 +90,26 @@ header img {
 	align-content: center;
 }
 #signup_user table td.tag {
-	width: 15rem;
+	width: 11rem;
 }
 #signup_user table td.datainput{
 	width: auto;
-	padding-right: 6rem;
+	padding-right: 4rem;
+}
+
+#signup_user table th.datainput{
+	text-align: center;
+	height: 100px;
+}
+#signup_user table th.datainput .btn{
+	border: 0px;
+	background: #000;
+	width: 200px; height: 30px;
+	color: #fff;
 }
 #signup_user table input.tel {
-	width: 17.8rem;
-	height: 4rem;
+	width: 17.4rem;
+	height: 3rem;
 }
 #signup_user table input[type=radio] {
 	width: 2rem;
@@ -168,6 +131,12 @@ header img {
 #signup_user table tr:last-child {
 	height: 4rem;
 }
+
+#footer{
+	margin-top: 100px;
+	width:100%; height: 100px;
+	background: #000;
+}
 .modal-lg {
 	width: auto;
 }
@@ -177,23 +146,27 @@ header img {
 	font-size: 2rem;
 	width: auto;
 	margin: 0 auto;
-	text-align: center;
+	text-align: left;
 	align-content: center;
 	border-radius: 10px;
 	background-color: #fff;
 }
+#update_user table td{
+	padding: 5px 20px;
+}
 #update_user table input {
 	text-align: left;
 	width:  50rem;
-	height: 5rem;
+	height: 4rem;
 	margin: .5rem 0;
 	padding-left: 15px;
 	font-size: 2rem;
+	outline: none;
 }
 #update_user table input[type=button],
 #update_user table input[type=reset] {
 	width: 10rem;
-	height: 3rem;
+	height: 4rem;
 	font-size: 1.5rem;
 	text-align: center;
 	padding: 0;
@@ -202,16 +175,10 @@ header img {
 	color: black;
 	font-size: 1.5rem;
 }
-#update_user table input:focus::placeholder {
-	color: blue;
-	font-weight: bold;
-	transition-property: font-size, background-color;
-	font-size: 1.3rem;
-	transition-duration: 0.5s;
-}
+
 #update_user table input[name=email1],
 #update_user table input[name=email2] {
-	width: 18rem;
+	width: 15rem;
 }
 #update_user table select {
 	width: 10rem;
@@ -220,6 +187,7 @@ header img {
 }
 #update_user table input:focus {
 	background-color: #B0B0B0;
+	border: 1px solid #000;
 }
 #update_user table label {
 	display: inline-block;
@@ -234,9 +202,19 @@ header img {
 	width: auto;
 	padding-right: 6rem;
 }
+
+#update_user table th#bt_sty{
+	text-align: center;
+	height: 100px;
+}
+
+#update_user table th#bt_sty .bt_sty{
+	background: #000;
+	color: #fff;
+}
 #update_user table input.tel {
-	width: 17.8rem;
-	height: 4rem;
+	width: 10rem;
+	height: 3rem;
 }
 #update_user table input[type=radio] {
 	width: 2rem;
