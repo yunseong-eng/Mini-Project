@@ -56,15 +56,18 @@ html{
 	text-align: left;
 	width:  40rem;
 	height: 5rem;
-	margin: .5em 0;
+	margin: 1em 0;
 	padding-left: 15px;
 	font-size: 2rem;
+	outline: none;
 }
 #user_login table input[type=button],
 #user_login table input[type=reset] {
 	width: 10rem;
 	height: 3rem;
 	font-size: 1.5rem;
+	background:#000;
+	color:#fff;
 	text-align: center;
 	padding: 0;
 }
@@ -72,13 +75,7 @@ html{
 	color: black;
 	font-size: 1.5rem;
 }
-#user_login table input:focus::placeholder {
-	color: blue;
-	font-weight: bold;
-	transition-property: font-size, background-color;
-	font-size: 1.3rem;
-	transition-duration: 0.5s;
-}
+
 #user_login table input[name=email1],
 #user_login table input[name=email2] {
 	width: 18rem;
@@ -89,6 +86,7 @@ html{
 }
 #user_login table input:focus {
 	background-color: #B0B0B0;
+	border: 1px solid #000;
 }
 #user_login table label {
 	display: inline-block;

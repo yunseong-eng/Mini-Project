@@ -4,12 +4,6 @@ body {
     padding: 0;
 }
 
-header {
-    padding: 20px;
-    background-color: #000;
-    text-align: left;
-}
-
 #logo img {
     width: 120px;
 }

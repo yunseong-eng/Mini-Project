@@ -7,13 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="./header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 <link rel="stylesheet" href="./product.css">
 </head>
 <body>
-	<jsp:include page="./header.jsp" />
+	<jsp:include page="../main/header.jsp"/>
 		<div id="title">
-			<div>${ ctgTitle}</div>
+			<div>"${ search}"에 대한 검색 결과</div>
 		</div>
 
 			<div id="filter">
@@ -43,7 +43,11 @@
 			</div>
 
 			<div id="products">
-				<c:if test="${ list != null }">
+				<c:if test="${list == null || list.isEmpty() }">
+					<div>"${ search}"에 대한 검색 결과는 없습니다.</div>
+				</c:if>
+				
+				<c:if test="${ list != null && !list.isEmpty() }">
 					<c:forEach var="item" items="${list }">
 						<div class="product" id="${item.productId }">
 							<img alt="상품이미지" src="${pageContext.request.contextPath}/${item.productImage }" class="img">
@@ -66,6 +70,7 @@
 	<c:if test="${empty requestScope.search }">
 		<div id="products">상품이 없습니다.</div>
 	</c:if>
+	
 	<script type="text/javascript"
 		src="http://code.jquery.com/jquery.min.js"></script>
 	<script type="text/javascript">
@@ -160,5 +165,7 @@ $('#detail .like').click(function(){
 })
 
 </script>
+
+	<footer id="footer"></footer>
 </body>
 </html>

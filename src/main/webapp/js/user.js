@@ -5,7 +5,7 @@ $(document).on('focusout', '#user_id', function(){
 	$('#checkidbox').empty();
 	
 	if($('#user_id').val() == '')
-		$('#checkidbox').html('먼저 아이디 입력').css('color', 'red').css('font-size', '1.5rem');
+		$('#checkidbox').html('먼저 아이디 입력').css('color', 'tomato').css('font-size', '1.2rem');
 	else
 		$.ajax({
 			type: 'post',
@@ -16,9 +16,9 @@ $(document).on('focusout', '#user_id', function(){
 				//alert(data.trim());
 				
 				if(data.trim() == 'exist'){
-					$('#checkidbox').html('사용 불가능').css('color', 'red').css('font-size', '1.5rem');
+					$('#checkidbox').html('사용 불가능').css('color', 'tomato').css('font-size', '1.2rem');
 				}else{
-					$('#checkidbox').html('사용 가능').css('color', 'blue').css('font-size', '1.5rem');
+					$('#checkidbox').html('사용 가능').css('color', 'blue').css('font-size', '1.2rem');
 					$('#check').val($('#user_id').val());
 				}
 				return

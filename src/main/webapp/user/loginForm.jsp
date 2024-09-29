@@ -6,18 +6,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 <style type="text/css">
 #formSize {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	margin-top: 25rem;
+	margin-top: 10rem;
 }
 h2 {
 	text-align: center;
-	padding : 1.5rem 0;
-	font-size: 3rem;
+	padding : 1.8rem 0;
+	font-size: 2.5rem;
 }
 </style>
 </head>
@@ -44,7 +45,7 @@ h2 {
 				<tr>
 					<th colspan="2">
 						<input type="button" id="loginBtn" class="bt_sty" value="로그인"/>
-						<input type="button" class="bt_sty" value="회원가입" onclick="${pageContext.request.contextPath}/user/writeForm.do"/>
+						<input type="button" class="bt_sty" value="회원가입" onclick="location.href='${pageContext.request.contextPath}/user/writeForm.do'"/>
 					</th>
 				</tr>
 			</table>

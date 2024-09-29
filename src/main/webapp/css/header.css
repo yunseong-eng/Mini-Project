@@ -1,156 +1,166 @@
 @charset "UTF-8";
-* {
-	padding : 0;
-	margin : 0;
-	box-sizing : border-box;
+/* HTML5 초기화 */
+*{
+	margin: 0; padding: 0;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
 body {
-	height: 100vh;
-	overflow-y: auto;
-	background-color: #D1D1D1;
+	line-height: 1;
 }
-html{
-	height: 100vh;
-	overflow-y: auto;
-	overflow-x: hidden;
-	font-size: 10px;
-	background-color: #000;
-	margin-right: calc(-1 * (100vw - 100%));
+ol, ul {
+	list-style: none;
 }
-header {
-	display : flex;
-	height : 80px;
-	background-color : #fff;
-	justify-content : space-between;
-	position: sticky;
-	top:0;
-	z-index: 10;
+blockquote, q {
+	quotes: none;
 }
-#banner .banner_img {
-	width : 100px;
-	height : 80px;
-	object-fit : contain;
-	margin-left : 10px;
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
 }
-#banner {
-	margin: 0;
-}
-#member {
-	box-sizing : border-box;
-	display: flex;
-	flex-direction: row;
-	position:relative;
-}
-#member button {
-	width : 50px;
-	height : 20px;
-	border-style: none;
-	border-radius : 10px 10px;
-	background-color: #fff;
-	text-align : center;
-	color : #000;
-	font-size : 10px;
-	text-decoration : none;
-	margin : 10px 10px 0 0;
-	cursor : pointer;
-	transform: translateY(2px);
-	transition: all 0.5s;
-}
-#member button:hover {
-	border : 1px solid #7F7F7F;
-	color : #fff;
-	box-shadow: 0 0.5em 0.5em -0.4em #000;
-	background-color: #6E6E6E;
-	transform: translateY(-2px);
-	transition: all 0.5s;
-}
-nav {
-	background-color: #fff;
-	display: flex;
-	justify-content: center;
-	align-content : center;
-	height: 8rem;
-	width: 100%;
-	margin: 0 auto;
-	text-align: center;
-	transition: none;
-}
-nav ul {
-	align-content: center;
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-nav li {
-	font-size : 2rem;
-	display: inline-block;
-	list-style : none;
-	padding : 3px 15px;
-	transform: translate(2px, 2px);
-	transition: all 0.5s;
+/* HEADER */
+#topBack{
+	width: 100%; height: 30px;
+	background: #000;
+}
+
+#header{
+	display: flex; /* Flexbox를 사용하여 아이템을 배치 */
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 세로 정렬 */
+	width: 100%; height: 80px;
+	background: #fff;
+	border-bottom: 1px solid #eceff1;
+}
+
+#header .img{
+	float: left;
+	width: 10%;
+}
+
+#header .img img{
+	height: 60px;
+	padding: 10px 0 0 20px;
+}
+
+#header .nav {
+    display: flex;
+    justify-content: center; /* Center the nav items */
+    width: 100%;
+}
+
+#header #nav{
+    display: flex; /* Make the #nav a flex container */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    background: #fff;
+    width: 300px;
+}
+
+.managerNav ul li a{
+	color: tomato !important;
+}
+
+.managerNav ul li:hover{
+	border-bottom:3px solid tomato !important;
+}
+
+#header #nav ul{
+	width: 100%; height: 80px;
+}
+
+#header #nav ul li{
+	float: left;
+	margin-top: 30px;
+	width: 25%; height: 50px; line-height: 50px;
+	text-align: center;
+}
+
+#header ul li a{
+	text-decoration: none;
+	display:block;
+	font-size: 15px;
+	color: #000;
+}
+
+#header ul li:hover{
+	border-bottom:3px solid #333;
+}
+
+/* 로그인/회원가입/마이페이지/로그아웃 */
+#member{
+	width: 100%;
+	text-align: right;
+	background: #fff;
+}
+#member button{
+	margin : 10px 8px 0 0;
+	padding: 4px 10px;
+	border-style: none; border-radius: 10px 10px;
+	font-size: 10px; color: #000;
+	background: #fff;
 	cursor : pointer;
 }
-nav li:hover {
-	box-shadow: 0.5em 0.5em 1em -0.2em #000;
-	border-radius: 5px 5px;
-	transform: translate(-2px, -2px);
-	transition: all 0.5s;
-	color: blue;
+
+#member button:hover {
+	color : #fff;
+	background-color: #000;
 }
-nav a {
-	width: 100px;
-	text-align : center;
-	line-height: 200%;
-	text-decoration : none;
-	color: blue;
+
+/* 검색창 */
+.searchForm{
+	width: auto;
+	margin-top: 20px;
+	padding-right: 85px;
 }
-#banner {
-	margin :0;
-}
-#searchBox {
-	padding-top : 2.8rem;
-	right: 15.5rem;
-	position: absolute;
-    width: 0; /* 기본 너비를 0으로 설정 */
-    overflow: hidden; /* 넘치는 내용은 숨김 */
-    transition: width 0.5s ease; /* 너비 변경 시 부드럽게 전환 */
+
+#searchBox{
+    transition: transform 0.5s ease; /* 위치 변경 시 부드럽게 전환 */
     white-space: nowrap; /* 줄 바꿈 방지 */
+    transform: scaleX(0); /* 기본적으로 숨김 (너비 0으로 설정) */
+    transform-origin: right; /* 왼쪽에서부터 확대 */
+	width: 0;
 }
-#searchBox.show {
-    width: 200px; /* show 클래스가 추가될 때 height 값을 auto로 변경 */
+
+#searchForm #search{
+	float: left;
+	width: 75%; height: 20px;
+	border-style: none;
+	border-bottom: 1px solid #000;
+	margin-top: 10px; 
+	outline: none;
+	background: none;
 }
-#searchBox #search {
-	padding: .2rem;
-	width: 17.5rem;
+#searchBox.show{
+	width: 170px;
+	transform: scaleX(1); /* 보일 때 전체 너비로 확장 */
 }
-#search_imgbox {
-	margin-top: 2rem;
-	margin-right : 0;
-	position: absolute;
-	right: 13rem;
-	border-radius: 5%;
-	background-color: #FFF;
+.searchForm #search_imgbox {
+	float: left;
+	margin-left: 10px;
 }
-#search_imgbox img{
-	width: 3.8rem;
-	height: 3.8rem;
+
+.searchForm #search_imgbox img{
+	width: 25px; height: 25px;
 	overflow: hidden;
 }
-#search_imgbox label:active img {
-	transform: scale(0.9);
- 	-webkit-transform: scale(0.9); /* 크롬, 사파리 */
- 	-moz-transform: scale(0.9);  /* 파이어폭스 */
- 	-ms-transform: scale(0.9); /* IE */
-  	-o-transform: scale(0.9);
-	transition: all .2s;
+
+#footer{
+	width: 100%; height: 150px;
+	margin-top: 250px;
+	background: #000;
 }
-#search_imgbox label img {
-	transform: scale(1);
-	transition: all 0.05s ease-out;
+
+.footer{
+	width: 100%; height: 100px;
+	background: #000;
 }
-#search_imgbox:hover img {
-  transform: scale(1.1);
-  -webkit-transform: scale(1.1); /* 크롬, 사파리 */
-  -moz-transform: scale(1.1);  /* 파이어폭스 */
-  -ms-transform: scale(1.1); /* IE */
-  -o-transform: scale(1.1);  /* 오페라 */
-  transition: all .7s;
-}
+

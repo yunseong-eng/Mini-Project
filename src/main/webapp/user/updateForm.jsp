@@ -5,11 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 <style type="text/css">
 h2 {
 	text-align: center;
-	padding : 1.5rem 0;
-	font-size: 3rem;
+	padding : 3rem 0;
+	font-size: 2.5rem;
 }
 #updateForm {
 	display: flex;
@@ -95,7 +96,7 @@ h2 {
 			    	<th colspan="2"><div id="errorbox"></div></th>
 			    </tr>
 				<tr>
-					<th colspan="2">
+					<th colspan="2" id="bt_sty">
 						<input type="button" id="update_Btn" class="bt_sty" value="수정완료" />
 						<input type="reset" id="reset_btn" class="bt_sty" value="다시작성">
 						<input type="button" id="delete_user" class="bt_sty" value="회원탈퇴">
@@ -105,6 +106,8 @@ h2 {
 		</form>
 		
 	</div>
+	
+	<footer id="footer"></footer>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<script type="text/javascript">
 		var contextPath = '${pageContext.request.contextPath}';

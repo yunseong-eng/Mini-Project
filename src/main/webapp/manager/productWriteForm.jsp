@@ -6,6 +6,8 @@
 <title>ADD</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/products.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/manager.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
+
 </head>
 <body>
 	<jsp:include page="../main/header.jsp"/>
@@ -55,6 +57,8 @@
             </table>
         </form>
     </main>
+    
+    <footer id="footer"></footer>
 
     <script>
         //이미지 미리보기 기능 추가

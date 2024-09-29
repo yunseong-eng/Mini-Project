@@ -7,11 +7,13 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/css/user.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
+
 <style type="text/css">
 h2 {
 	text-align: center;
-	padding : 1.5rem 0;
-	font-size: 3rem;
+	padding : 30px 0;
+	font-size: 2rem;
 }
 </style>
 </head>
@@ -88,12 +90,14 @@ h2 {
 			</tr>
 			<tr>
 				<th colspan="2" class="datainput">
-					<input type="button" id="signup_btn" value="회원가입"> 
-					<input type="reset" id="reset_btn" value="다시작성">
+					<input type="button" id="signup_btn" class="btn" value="회원가입"> 
+					<input type="reset" id="reset_btn" class="btn" value="다시작성">
 				</th>
 			</tr>
 		</table>
 	</form>
+	
+	<footer id="footer"></footer>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/user.js"></script>
