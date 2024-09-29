@@ -42,18 +42,8 @@ public class ListFormService implements CommandProcess {
 		}
 		
 		String ctgTitle = null;
-
-		if(ctg.equals("MEN")) {
-			ctgTitle = "남자 운동화";
-		}else if(ctg.equals("WOMEN")) {
-			ctgTitle = "여자 운동화";
-		}else if(ctg.equals("KIDS")) {
-			ctgTitle = "아이 운동화";
-		}else if(ctg.equals("SPORTS")) {
-			ctgTitle = "스포츠 운동화";
-		}
 		
-		request.setAttribute("ctgTitle", ctgTitle);
+		request.setAttribute("ctgTitle", ctg);
 		request.setAttribute("map", map);
 		
 		System.out.println(ctgTitle);
