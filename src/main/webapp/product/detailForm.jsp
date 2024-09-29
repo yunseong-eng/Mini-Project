@@ -95,20 +95,6 @@
 		</c:if>
 		</div>
 	</div>
-		
-	<div id="productDescription">
-		<div class="productDescriptionTitle">상세설명<span class="under">▽</span></div>
-		<div class="productDescription" style="display: none;">
-
-		<c:if test="${dto.productDescription != null && !dto.productDescription.isEmpty()}">
-			${dto.productDescription }
-		</c:if>
-		
-		<c:if test="${dto.productDescription  == null || dto.productDescription .isEmpty() }">
-			상세정보가 없습니다.
-		</c:if>
-		</div>
-	</div>
 	</c:if>
 	
 	<footer id="footer"></footer>
